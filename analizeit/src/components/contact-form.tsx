@@ -78,8 +78,10 @@ export function ContactForm() {
             aria-describedby={errors.name ? "name-error" : undefined}
             aria-invalid={Boolean(errors.name)}
             autoComplete="name"
+            maxLength={120}
             name="name"
             placeholder="Jak się do Ciebie zwracać?"
+            required
           />
           {errors.name ? <small className="field-error" id="name-error">{errors.name}</small> : null}
         </label>
@@ -91,8 +93,10 @@ export function ContactForm() {
             aria-invalid={Boolean(errors.email)}
             autoComplete="email"
             inputMode="email"
+            maxLength={254}
             name="email"
             placeholder="nazwa@firma.pl"
+            required
             type="email"
           />
           {errors.email ? <small className="field-error" id="email-error">{errors.email}</small> : null}
@@ -101,7 +105,7 @@ export function ContactForm() {
 
       <label className="field">
         <span>Firma <em>opcjonalnie</em></span>
-        <input autoComplete="organization" name="company" placeholder="Nazwa organizacji" />
+        <input autoComplete="organization" maxLength={180} name="company" placeholder="Nazwa organizacji" />
       </label>
 
       <label className="field">
@@ -110,8 +114,10 @@ export function ContactForm() {
           className="resize-none"
           aria-describedby={errors.message ? "message-error" : undefined}
           aria-invalid={Boolean(errors.message)}
+          maxLength={5000}
           name="message"
           placeholder="Proces, etap projektu, najważniejsze wyzwanie…"
+          required
           rows={6}
         />
         {errors.message ? <small className="field-error" id="message-error">{errors.message}</small> : null}
@@ -127,6 +133,7 @@ export function ContactForm() {
           aria-describedby={errors.consent ? "consent-error" : undefined}
           aria-invalid={Boolean(errors.consent)}
           name="consent"
+          required
           type="checkbox"
         />
         <span>
