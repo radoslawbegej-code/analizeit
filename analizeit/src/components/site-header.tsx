@@ -51,12 +51,15 @@ export function SiteHeader() {
       </div>
       <div className={`mobile-nav${open ? " mobile-nav--open" : ""}`} id="mobile-navigation" inert={!open}>
         <nav aria-label="Nawigacja mobilna" className="mobile-nav__inner">
-          {navigation.map((item, index) => (
-            <Link aria-current={pathname === item.href ? "page" : undefined} className="mobile-nav__link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
-              <span>0{index + 1}</span>
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item, index) => {
+            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            return (
+              <Link aria-current={active ? "page" : undefined} className="mobile-nav__link" href={item.href} key={item.href} onClick={() => setOpen(false)}>
+                <span>0{index + 1}</span>
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>
