@@ -63,13 +63,55 @@ body:has(.digital-subpage) .menu-toggle { color: #f4f6ed; }
 .digital-subpage .competencies-grid h2 { max-width: 18ch; }
 .digital-subpage .competencies-grid li { font-size: 1rem; border-color: #ffffff20; }
 .digital-subpage .competencies-grid li::before { content: '✓'; color: #d2fa7c; }
-.digital-subpage .cta-wrap { padding: 0; max-width: none; width: 100%; background: #d2fa7c; }
-.digital-subpage .cta-band { padding: clamp(3rem,5vw,5rem) var(--gutter); background: #d2fa7c; color: #1d2819; border: 0; }
-.digital-subpage .cta-band__row { width: 100%; max-width: calc(var(--max-width) - 2 * var(--gutter)); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 3rem; }
-.digital-subpage .cta-band h2 { font-size: clamp(2rem,3.6vw,3.5rem); max-width: 20ch; }
-.subpage-contact-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-shrink: 0; background: #1d2819; color: #f4f6ed; padding: 1.2rem 1.5rem; border-radius: 4px; font-size: 1rem; transition: background 180ms ease; }
-.subpage-contact-link:hover { background: #304325; }
-body:has(.digital-subpage) .subpage-contact-link:focus-visible { outline-color: #1d2819; }
+.digital-subpage .cta-wrap {
+  padding: 0;
+  max-width: none;
+  width: 100%;
+  background: #1b211d;
+  border-top: 1px solid #ffffff24;
+}
+.digital-subpage .cta-band {
+  padding: clamp(4rem,6.5vw,6.5rem) var(--gutter);
+  background: #1b211d;
+  color: var(--digital-text);
+  border: 0;
+}
+.digital-subpage .cta-band__row {
+  width: 100%;
+  max-width: calc(var(--max-width) - 2 * var(--gutter));
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(2rem,6vw,6rem);
+}
+.digital-subpage .cta-band h2 {
+  font-size: clamp(2rem,3.6vw,3.5rem);
+  max-width: 22ch;
+}
+.subpage-contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  min-height: 56px;
+  background: var(--digital-accent);
+  color: #151917;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--digital-accent);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+.subpage-contact-link:hover {
+  background: #e2ffac;
+  border-color: #e2ffac;
+}
+body:has(.digital-subpage) .subpage-contact-link:focus-visible {
+  outline-color: var(--digital-accent);
+}
 .digital-subpage .text-link { color: #d2fa7c; font-size: 1rem; padding-block: .5rem; gap: .75rem; }
 .digital-subpage .text-link:hover { color: #e2ffac; }
 .digital-subpage .contact-section {
