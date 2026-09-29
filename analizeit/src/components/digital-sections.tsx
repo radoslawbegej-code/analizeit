@@ -25,6 +25,21 @@ const capabilities = [
   },
 ];
 
+const deliveryPrinciples = [
+  {
+    title: "Proces przed formularzem",
+    text: "Najpierw ustalam przebieg, role, wyjątki i dane. Dopiero później przekładam je na rozwiązanie.",
+  },
+  {
+    title: "Test przed uruchomieniem",
+    text: "Sprawdzamy rzeczywiste scenariusze użytkowników, integracje oraz przypadki, które najczęściej psują proces.",
+  },
+  {
+    title: "Rozwiązanie do dalszego rozwoju",
+    text: "Logika i założenia pozostają czytelne, żeby kolejna zmiana nie wymagała odtwarzania projektu od początku.",
+  },
+];
+
 export function DigitalSections() {
   return (
     <div className="digital-sections">
@@ -64,14 +79,23 @@ export function DigitalSections() {
 
         <section className="home-delivery" aria-labelledby="delivery-title">
           <Container>
-            <div className="home-delivery__header">
-              <h2 id="delivery-title">Uzgodniony zakres.<br />Czytelny przebieg prac.</h2>
-            </div>
+            <div className="home-delivery__layout">
+              <div className="home-delivery__intro">
+                <h2 id="delivery-title">Najpierw proces.<br />Potem implementacja.</h2>
+                <p>
+                  Development zaczynam od zrozumienia sposobu pracy: kto podejmuje decyzje,
+                  gdzie pojawiają się wyjątki i z jakimi systemami rozwiązanie musi wymieniać dane.
+                </p>
+              </div>
 
-            <div className="home-delivery__statement" aria-label="Zasady współpracy">
-              <p><span>Przed startem</span> <strong>ustalamy zakres i odpowiedzialności.</strong></p>
-              <p><span>Przed wdrożeniem</span> <strong>sprawdzamy proces i wyjątki.</strong></p>
-              <p><span>Po uruchomieniu</span> <strong>zostaje rozwiązanie gotowe do dalszego rozwoju.</strong></p>
+              <div className="home-delivery__principles">
+                {deliveryPrinciples.map((item) => (
+                  <article key={item.title}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </Container>
         </section>
