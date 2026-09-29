@@ -17,22 +17,22 @@ export default function RealizationsPage() {
     <div className="digital-subpage realizations-page">
       <PageHero
         eyebrow="Przykłady procesów"
-        title="Procesy i integracje w praktyce."
-        lead="Przykładowe modele rozwiązań dla faktur, zakupów, onboardingu, umów, pracy z danymi i raportowania. Każdy pokazuje problem, przebieg procesu oraz miejsca, w których pojawiają się integracje i automatyzacja."
+        title="Proces, dane i integracje w jednym modelu."
+        lead="To nie są gotowe szablony do skopiowania. Każdy przykład pokazuje, jak można uporządkować role, decyzje, dane i integracje w typowym procesie biznesowym — od pierwszego zgłoszenia po monitoring i raportowanie."
       />
 
       <section className="realizations-catalog" id="projekty" aria-labelledby="realizations-catalog-title">
         <Container>
           <div className="realizations-catalog__heading">
             <h2 id="realizations-catalog-title">Obszary zastosowań</h2>
-            <p>{realizations.length} przykładów · procesy, integracje i dane</p>
+            <p>{realizations.length} modeli procesów</p>
           </div>
           <RealizationGrid items={realizations} />
         </Container>
       </section>
 
       <Container className="cta-wrap">
-        <CtaBand title="Chcesz przełożyć podobny proces na własne środowisko?" />
+        <CtaBand title="Masz podobny proces, ale inne reguły i systemy?" />
       </Container>
     </div>
   );
