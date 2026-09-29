@@ -29,7 +29,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  if (name.length < 2 || !emailPattern.test(email) || message.length < 20) {
+  if (
+    name.length < 2 ||
+    name.length > 120 ||
+    !emailPattern.test(email) ||
+    email.length > 254 ||
+    company.length > 180 ||
+    message.length < 20 ||
+    message.length > 5000
+  ) {
     return NextResponse.json({ message: "Sprawdź wymagane pola formularza." }, { status: 400 });
   }
 
