@@ -11,29 +11,30 @@ export function SiteFooter() {
       <div className="site-footer__top">
         <div>
           <Wordmark />
+          <p className="site-footer__statement">
+            Digitalizacja procesów w WEBCON BPS, integracje systemów
+            i raportowanie oparte na uporządkowanych danych.
+          </p>
         </div>
+
         <div className="site-footer__nav">
           <p className="micro-label">Nawigacja</p>
           {navigation.map((item) => (
             <Link href={item.href} key={item.href}>{item.label}</Link>
           ))}
         </div>
+
         <div className="site-footer__contact">
           <p className="micro-label">Kontakt</p>
-          {siteConfig.contact.email ? (
-            <a href={`mailto:${siteConfig.contact.email}`}>
-              {siteConfig.contact.email}<ArrowUpRight size={15} />
-            </a>
-          ) : (
-            <Link href="/kontakt">Porozmawiajmy<ArrowUpRight size={15} /></Link>
-          )}
+          <Link href="/kontakt">Porozmawiajmy<ArrowUpRight size={15} /></Link>
           {siteConfig.contact.linkedin ? (
-            <a href={siteConfig.contact.linkedin} rel="noreferrer" target="_blank">
+            <a href={siteConfig.contact.linkedin} rel="noopener noreferrer" target="_blank">
               LinkedIn<ArrowUpRight size={15} />
             </a>
           ) : null}
         </div>
       </div>
+
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} {siteConfig.legalName}</span>
         <span>{siteConfig.owner}</span>
