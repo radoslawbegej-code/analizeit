@@ -4,6 +4,7 @@ test("strona główna zachowuje hierarchię i mieści się w widoku", async ({ p
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.locator(".ambient-process")).toHaveCount(1);
   const skipLink = page.getByRole("link", { name: "Przejdź do treści" });
   expect(await skipLink.evaluate(element => element.getBoundingClientRect().bottom)).toBeLessThanOrEqual(0);
   await page.keyboard.press("Tab");
