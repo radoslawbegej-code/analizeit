@@ -402,3 +402,14 @@ body:has(:is(.digital-hero, .digital-subpage)) .ambient-process {
     animation: none;
   }
 }
+
+
+body:has(:is(.digital-hero, .digital-subpage)) .site-header {
+  z-index: 20;
+}
+
+@media (forced-colors: active) {
+  .ambient-process {
+    display: none !important;
+  }
+}
