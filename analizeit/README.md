@@ -18,10 +18,11 @@ Strona będzie dostępna pod adresem `http://localhost:3000`.
 Cała treść oraz dane marki znajdują się w `src/content/site.ts`. Przed publikacją należy uzupełnić:
 
 - docelową domenę w `.env.local` jako `NEXT_PUBLIC_SITE_URL`,
+- webhook formularza jako `CONTACT_FORM_WEBHOOK_URL`,
 - docelowy kanał kontaktu w `siteConfig.contact`,
 - pełne dane działalności i finalną informację o prywatności zgodną z docelowym hostingiem oraz sposobem kontaktu.
 
-Publiczna strona kontaktowa korzysta obecnie z bezpośredniego odnośnika do LinkedIn. Komponent formularza pozostaje w kodzie jako baza do późniejszej integracji, ale nie jest prezentowany użytkownikom, dopóki nie zostanie podłączona rzeczywista wysyłka.
+Formularz na stronie „O mnie” wysyła dane przez `/api/contact` do skonfigurowanego webhooka. Bez `CONTACT_FORM_WEBHOOK_URL` endpoint zwraca czytelny błąd i nie udaje poprawnej wysyłki.
 
 ## Kontrola jakości
 
