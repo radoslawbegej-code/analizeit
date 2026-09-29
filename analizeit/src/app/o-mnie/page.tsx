@@ -48,9 +48,9 @@ export default function AboutPage() {
               </p>
 
               <p className="about-hero__description">
-                Pracuję na styku analizy i developmentu. Dzięki temu wymagania,
-                reguły biznesowe i integracje nie są przekazywane z ręki do ręki —
-                mogę prowadzić je od rozmowy z użytkownikami po działające rozwiązanie.
+                Łączę analizę z developmentem. Rozmawiam z użytkownikami, ustalam
+                reguły i wyjątki, a później przekładam je na konfigurację WEBCON,
+                integracje i dane.
               </p>
 
               <div className="about-hero__actions">
@@ -116,8 +116,8 @@ export default function AboutPage() {
           <div className="about-work__heading">
             <h2 id="work-title">Jak pracuję</h2>
             <p>
-              Łączę decyzje biznesowe z technicznymi konsekwencjami.
-              To skraca drogę między wymaganiem a implementacją.
+              Jeśli decyzja biznesowa wpływa na dane, uprawnienia albo integrację,
+              ustalam to od razu — nie dopiero podczas developmentu.
             </p>
           </div>
 
