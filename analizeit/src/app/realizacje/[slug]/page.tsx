@@ -125,8 +125,8 @@ export default async function RealizationDetailPage({ params }: PageProps) {
           <div className="process-detail__section-heading">
             <h2 id="integrations-title">Integracje i automatyzacja.</h2>
             <p>
-              Technologia ma wspierać przebieg procesu i kontrolę danych, a nie tworzyć
-              dodatkową warstwę obsługi dla użytkownika.
+              Poniżej są miejsca, w których proces korzysta z danych zewnętrznych,
+              automatycznych reguł lub komunikacji z innymi systemami.
             </p>
           </div>
 
@@ -144,8 +144,8 @@ export default async function RealizationDetailPage({ params }: PageProps) {
           <div className="process-detail__section-heading">
             <h2 id="effects-title">Co ma się zmienić.</h2>
             <p>
-              Efekt powinien być widoczny w sposobie pracy i jakości informacji,
-              nie tylko w samym uruchomieniu nowego obiegu.
+              Oczekiwane zmiany dotyczą codziennej pracy, dostępności informacji
+              i kontroli nad przebiegiem sprawy.
             </p>
           </div>
 
