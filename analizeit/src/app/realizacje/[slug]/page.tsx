@@ -54,25 +54,12 @@ export default async function RealizationDetailPage({ params }: PageProps) {
           </Link>
 
           <div className="process-detail__intro">
-            <div className="process-detail__title">
-              <h1 id="realization-title">{item.title}</h1>
-              <p>{item.summary}</p>
+            <h1 id="realization-title">{item.title}</h1>
+            <p>{item.summary}</p>
+            <div className="process-detail__context">
+              <p>W procesie uczestniczą: {item.roles.join(", ")}.</p>
+              <p>Technologie: {item.technologies.join(", ")}.</p>
             </div>
-
-            <dl className="process-detail__meta">
-              <div>
-                <dt>Obszar</dt>
-                <dd>{item.category}</dd>
-              </div>
-              <div>
-                <dt>Uczestnicy</dt>
-                <dd>{item.roles.join(" · ")}</dd>
-              </div>
-              <div>
-                <dt>Technologie</dt>
-                <dd>{item.technologies.join(" · ")}</dd>
-              </div>
-            </dl>
           </div>
 
           <div className="process-detail__photograph">
@@ -90,30 +77,27 @@ export default async function RealizationDetailPage({ params }: PageProps) {
       <Container>
         <section className="process-detail__comparison" aria-label="Problem i model rozwiązania">
           <div>
-            <h2>Co utrudnia pracę.</h2>
+            <h2>Problem</h2>
             <p>{presentation.problem}</p>
           </div>
           <div>
-            <h2>Jak można to uporządkować.</h2>
+            <h2>Model rozwiązania</h2>
             <p>{presentation.solution}</p>
           </div>
         </section>
 
         <section className="process-detail__process" aria-labelledby="process-title">
-          <div className="process-detail__section-heading">
-            <h2 id="process-title">Przebieg procesu.</h2>
+          <div className="process-detail__heading">
+            <h2 id="process-title">Przebieg procesu</h2>
             <p>
-              Kolejność pokazuje logikę przykładowego rozwiązania. Konkretne kroki,
-              role i reguły są zawsze dopasowywane do organizacji.
+              Przykładowa kolejność działań. W rzeczywistym wdrożeniu kroki, role
+              i reguły wynikają z procesu w danej organizacji.
             </p>
           </div>
 
           <ol className="process-detail__steps">
-            {item.steps.map((step, stepIndex) => (
+            {item.steps.map((step) => (
               <li key={step.title}>
-                <span className="process-detail__step-number">
-                  {String(stepIndex + 1).padStart(2, "0")}
-                </span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
               </li>
@@ -122,29 +106,29 @@ export default async function RealizationDetailPage({ params }: PageProps) {
         </section>
 
         <section className="process-detail__integrations" aria-labelledby="integrations-title">
-          <div className="process-detail__section-heading">
-            <h2 id="integrations-title">Integracje i automatyzacja.</h2>
+          <div className="process-detail__heading">
+            <h2 id="integrations-title">Integracje i automatyzacja</h2>
             <p>
-              Poniżej są miejsca, w których proces korzysta z danych zewnętrznych,
-              automatycznych reguł lub komunikacji z innymi systemami.
+              Miejsca, w których proces korzysta z danych, reguł automatycznych
+              lub komunikacji z innymi systemami.
             </p>
           </div>
 
-          <div className="process-detail__integration-list">
+          <div className="process-detail__integration-copy">
             {item.integrations.map((integration) => (
-              <article key={integration.title}>
+              <div key={integration.title}>
                 <h3>{integration.title}</h3>
                 <p>{integration.description}</p>
-              </article>
+              </div>
             ))}
           </div>
         </section>
 
         <section className="process-detail__outcomes" aria-labelledby="effects-title">
-          <div className="process-detail__section-heading">
-            <h2 id="effects-title">Co ma się zmienić.</h2>
+          <div className="process-detail__heading">
+            <h2 id="effects-title">Co ma się zmienić</h2>
             <p>
-              Oczekiwane zmiany dotyczą codziennej pracy, dostępności informacji
+              Rezultat powinien być widoczny w codziennej pracy, jakości danych
               i kontroli nad przebiegiem sprawy.
             </p>
           </div>
