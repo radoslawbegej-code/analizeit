@@ -1,0 +1,29 @@
+/* Public site: spacing and fine rules replace contrasting rectangular panels.
+   Kept separate from the archived visual concepts; component geometry is retained. */
+body:has(:is(.digital-hero, .digital-subpage)) { min-width: 0; }
+.digital-sections .ds-services,
+.digital-sections .ds-start,
+.digital-subpage :is(.architecture-section, .principles-section, .case-framework, .expertise-map) {
+  background: var(--digital-bg);
+  color: var(--digital-text);
+  --digital-muted: #a5afa8;
+}
+.digital-sections .ds-start { border-block: 1px solid var(--line); }
+.digital-sections :is(.ds-scenarios, .ds-scenario) { border-color: var(--line); }
+.digital-sections .ds-scenario > svg { color: var(--digital-accent); }
+body:has(.digital-hero) .ds-start a:focus-visible { outline-color: var(--digital-accent); }
+
+.digital-subpage .system-map { background: transparent; border: 0; border-block: 1px solid var(--line); border-radius: 0; padding-inline: 0; }
+.digital-subpage .system-map__group span { border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+.digital-subpage .system-map__core { border: 0; border-block: 1px solid #738861; border-radius: 0; }
+.digital-subpage .system-map__core > strong { background: transparent; color: var(--digital-accent); }
+.digital-subpage .direct-contact { background: transparent; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding-inline: 0; }
+
+.digital-subpage .cta-wrap { background: transparent; }
+.digital-subpage .cta-band,
+.digital-sections .ds-contact { background: transparent; color: var(--digital-text); border-top: 1px solid var(--line); }
+.digital-sections .ds-contact p { color: var(--digital-muted); }
+:is(.digital-subpage .subpage-contact-link, .digital-sections .ds-contact__link) { background: transparent; color: var(--digital-accent); border: 0; border-bottom: 1px solid #738861; border-radius: 0; padding: 1rem 0; }
+:is(.digital-subpage .subpage-contact-link, .digital-sections .ds-contact__link):hover { background: transparent; color: #e2ffac; border-color: currentColor; }
+body:has(:is(.digital-hero, .digital-subpage)) :is(.subpage-contact-link, .ds-contact__link):focus-visible { outline-color: var(--digital-accent); }
+

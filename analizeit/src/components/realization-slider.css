@@ -1,0 +1,136 @@
+/* A shared twelve-column rhythm for the hero, heading and project rail. */
+.realizations-page,
+.realizations-preview {
+  --project-gap: clamp(1.5rem, 2vw, 2rem);
+  --project-ease: cubic-bezier(.22, 1, .36, 1);
+}
+.realizations-page .realizations-hero { padding-bottom: clamp(4rem, 6vw, 5.5rem); }
+.realizations-page .realizations-hero__intro,
+.realizations-catalog__heading,
+.digital-sections .realizations-preview .ds-heading {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--project-gap);
+}
+.realizations-page .realizations-hero__intro { margin-top: 0; }
+.realizations-page .realizations-hero__intro h1,
+.digital-sections .realizations-preview .ds-heading h2 { grid-column: span 7; }
+.realizations-page .realizations-hero__intro > p,
+.digital-sections .realizations-preview .ds-heading > p { grid-column: span 5; }
+.realizations-catalog,
+.digital-sections .realizations-preview {
+  --digital-text: #29332c;
+  --digital-muted: #586155;
+  --digital-accent: #42613a;
+  --line: rgba(41, 51, 44, .14);
+  background: #f3f3ee;
+  color: var(--digital-text);
+  border-top: 1px solid #bfc5b8;
+  overflow: clip;
+}
+.realizations-page .realizations-catalog { margin: 0; padding-block: clamp(3.5rem, 5vw, 4.5rem) 2.5rem; }
+.realizations-page .realizations-catalog__heading { margin-bottom: 2rem; }
+.realizations-page .realizations-catalog__heading h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  font-size: clamp(2rem, 3.6vw, 3.3rem);
+  letter-spacing: -.045em;
+}
+.realizations-page .realizations-catalog__heading h2 > span { font: .75rem var(--mono); color: var(--digital-muted); margin: 0; }
+.digital-sections .realizations-preview .ds-heading { margin-bottom: 3rem; align-items: end; }
+.realization-slider { position: relative; }
+.realization-slider__controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.3rem; }
+.realization-slider__range { font: .7rem var(--mono); color: var(--digital-muted); }
+.realization-slider__range strong { color: var(--digital-text); font-weight: 400; margin-right: .6rem; }
+.realization-slider__arrows { display: flex; gap: .5rem; }
+.realization-slider__arrows button { display: grid; place-items: center; width: 48px; height: 44px; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--digital-text); font: 1.7rem var(--sans); cursor: pointer; transition: opacity 260ms var(--project-ease), transform 260ms var(--project-ease); }
+.realization-slider__arrows button:disabled { opacity: .25; cursor: default; }
+.realization-slider__arrows button:not(:disabled):hover { transform: translateX(3px); }
+.realization-slider .realization-grid {
+  --cards-visible: 3;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: none;
+  grid-auto-columns: calc((100% - 2 * var(--project-gap)) / 3);
+  gap: var(--project-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  padding: 6px 6px 12px;
+  margin-inline: -6px;
+  scroll-padding-inline: 6px;
+  border-block: 1px solid var(--line);
+}
+.realization-slider .realization-grid::-webkit-scrollbar { display: none; }
+.realization-slider .realization-card {
+  scroll-snap-align: start;
+  padding: 1.5rem var(--project-gap) 1rem 0;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: background-color 260ms var(--project-ease), border-color 260ms var(--project-ease);
+}
+.realization-slider .realization-card:nth-child(3n) { border-right-color: transparent; }
+.realization-slider .realization-card__visual { display: flex; flex-direction: column; align-items: stretch; height: auto; gap: 1.2rem; margin-bottom: 1.6rem; }
+.realization-slider .realization-card__visual > span { font: 2.6rem/1 var(--sans); letter-spacing: -.07em; color: #71806a; }
+.realization-slider .realization-motif { display: block; width: 100%; height: 160px; max-width: none; color: #52664b; opacity: .85; transition: transform 260ms var(--project-ease), opacity 260ms var(--project-ease); }
+.realization-motif__accent { fill: #c2d991; stroke: #6e8755; }
+.realization-slider .realization-card__category { font: .64rem/1.5 var(--mono); letter-spacing: .07em; color: #586155; }
+.realization-slider .realization-card h3 { font-size: clamp(1.4rem, 1.95vw, 1.85rem); line-height: 1.2; font-weight: 500; min-height: 2.4em; margin: .85rem 0 1rem; text-wrap: balance; }
+.realization-slider .realization-card > p { font-size: .9rem; line-height: 1.65; margin: 0 0 1.8rem; }
+.realization-slider .realization-card .realization-technologies { min-height: 2.7rem; }
+.realization-slider .realization-card .realization-technologies li { font: .64rem/1.8 var(--mono); color: #586155; }
+.realization-slider .realization-card__link { justify-content: flex-start; width: fit-content; min-height: 44px; gap: .8rem; border: 0; margin-top: 1.3rem; padding: .6rem 0; font-size: .83rem; font-weight: 400; }
+.realization-slider .realization-card__link svg { width: 20px; height: 20px; padding: 0; background: transparent; color: var(--digital-accent); transition: transform 260ms var(--project-ease); }
+.realization-slider .realization-card:focus-within { border-right-color: #849477; }
+.realization-slider__footer { display: flex; justify-content: flex-end; padding-top: .8rem; }
+.realization-slider__pagination { display: flex; gap: 8px; }
+.realization-slider__pagination button { display: flex; align-items: center; width: 36px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.realization-slider__pagination span { height: 2px; width: 100%; background: #29332c25; transition: background-color 260ms var(--project-ease); }
+.realization-slider__pagination button[aria-current] span { background: #42613a; }
+body:has(:is(.digital-hero, .digital-subpage)) .realization-slider :is(a, button, [tabindex]):focus-visible,
+body:has(.digital-hero) .realizations-preview__footer a:focus-visible { outline: 2px solid #42613a; outline-offset: 3px; }
+.realizations-preview .realizations-preview__footer { margin-top: .5rem; border: 0; padding-top: 0; }
+@media (hover: hover) {
+  .realization-slider .realization-card:hover { background-color: rgba(194, 217, 145, .025); border-right-color: #a0ad96; }
+  .realization-slider .realization-card:hover .realization-motif { transform: translateY(-2px); opacity: 1; }
+  .realization-slider .realization-card__link:hover svg { transform: translate(3px, -3px); }
+}
+@media (max-width: 1023px) {
+  .realization-slider .realization-grid { --cards-visible: 2; grid-auto-columns: calc((100% - var(--project-gap)) / 2); }
+  .realization-slider .realization-card:nth-child(3n) { border-right-color: var(--line); }
+  .realization-slider .realization-card:nth-child(2n) { border-right-color: transparent; }
+}
+@media (max-width: 600px) {
+  .realizations-page .realizations-hero { padding-bottom: 3rem; }
+  .realizations-page .realizations-hero__intro h1,
+  .realizations-page .realizations-hero__intro > p,
+  .digital-sections .realizations-preview .ds-heading h2,
+  .digital-sections .realizations-preview .ds-heading > p { grid-column: 1 / -1; }
+  .realizations-page .realizations-catalog { padding-block: 2.7rem 1.5rem; }
+  .realizations-page .realizations-catalog__heading,
+  .digital-sections .realizations-preview .ds-heading { margin-bottom: 2rem; }
+  .realizations-page .realizations-catalog__heading h2 { font-size: 1.8rem; gap: 1rem; }
+  .realization-slider .realization-grid { --cards-visible: 1; grid-auto-columns: 100%; }
+  .realization-slider .realization-card { padding: 1.3rem 0 .8rem; border: 0; }
+  .realization-slider .realization-card__visual { gap: 1rem; margin-bottom: 1.4rem; }
+  .realization-slider .realization-motif { height: 150px; }
+  .realization-slider .realization-card h3 { font-size: 1.7rem; min-height: 2.4em; }
+  .realization-slider__pagination { width: 100%; }
+  .realization-slider__pagination button { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .realization-slider *, .realization-slider *::before, .realization-slider *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .realization-slider .realization-card:hover .realization-motif,
+  .realization-slider .realization-card__link:hover svg,
+  .realization-slider__arrows button:not(:disabled):hover { transform: none; }
+}

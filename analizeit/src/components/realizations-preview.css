@@ -1,0 +1,6 @@
+.realizations-preview { background: var(--digital-bg); }
+.realizations-preview__footer { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 2rem; }
+.realizations-preview__footer p { font-size: .75rem; }
+.realizations-preview__footer a { display: inline-flex; align-items: center; gap: 1rem; min-height: 44px; font-size: .85rem; flex-shrink: 0; }
+.realizations-preview__footer a:hover { color: var(--digital-accent); }
+@media(max-width:700px) { .realizations-preview__footer { flex-direction: column; gap: 1rem; } }

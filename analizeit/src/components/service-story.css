@@ -1,0 +1,115 @@
+.service-stories {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding: 6px var(--gutter) 8px var(--services-inset);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.service-stories::-webkit-scrollbar { display: none; }
+.service-stories:focus-visible { outline: 2px solid var(--digital-accent); outline-offset: -2px; }
+.service-story {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 clamp(440px, 42vw, 640px);
+  height: clamp(480px, 38vw, 560px);
+  overflow: hidden;
+  border-radius: 3px;
+  background: #29332e;
+  color: #fff;
+  cursor: grab;
+  -webkit-user-drag: none;
+}
+.service-story::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  z-index: 2;
+  background: var(--digital-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 450ms cubic-bezier(.2,.65,.3,1);
+  pointer-events: none;
+}
+.service-story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #07120e70 0%, #07120e15 25%, #07120ede 67%, #07120ef5 100%);
+  pointer-events: none;
+}
+.service-story__photo {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.45) brightness(.85);
+  transition: transform 650ms cubic-bezier(.2,.65,.3,1), filter 400ms ease;
+  pointer-events: none;
+}
+.service-story__content {
+  position: absolute;
+  z-index: 1;
+  inset: auto 32px 28px;
+}
+.digital-sections .service-story h3 {
+  max-width: 15ch;
+  color: #fff;
+  font-size: clamp(2rem, 2.8vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.13;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+.digital-sections .service-story p {
+  margin-top: 14px;
+  max-width: 42ch;
+  color: #e0e5df;
+  font-size: .9375rem;
+  line-height: 1.55;
+}
+.service-story__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #ffffff40;
+  color: #fff;
+  font-size: .8125rem;
+  font-weight: 500;
+  transition: color 250ms;
+}
+.service-story__link svg { flex-shrink: 0; transition: transform 300ms; }
+.service-story__arrow { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #ffffff60; border-radius: 50%; transition: background 300ms, color 300ms, border-color 300ms; }
+.service-story:focus-visible { outline-offset: -4px !important; }
+.service-story:focus-visible .service-story__photo { filter: saturate(1) brightness(1.08); transform: scale(1.065); }
+.service-story:focus-visible .service-story__link { color: var(--digital-accent); }
+.service-story:focus-visible::before { transform: scaleX(1); }
+.service-story:focus-visible .service-story__arrow { background: var(--digital-accent); border-color: var(--digital-accent); color: #151917; }
+@media (hover: hover) {
+  .service-story:hover .service-story__photo { filter: saturate(1) brightness(1.08); transform: scale(1.065); }
+  .service-story:hover .service-story__link { color: var(--digital-accent); }
+  .service-story:hover::before { transform: scaleX(1); }
+  .service-story:hover .service-story__arrow { background: var(--digital-accent); border-color: var(--digital-accent); color: #151917; }
+  .service-story:hover .service-story__link svg { transform: rotate(45deg); }
+}
+.service-stories[data-dragging] { cursor: grabbing; }
+.service-stories[data-dragging] .service-story { cursor: grabbing; }
+.service-stories[data-dragging] .service-story__photo { transition: none; }
+.service-stories__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 600px) {
+  .service-stories { gap: 14px; }
+  .service-story { flex-basis: 86vw; height: 470px; }
+  .service-story__content { inset: auto 24px 25px; }
+  .digital-sections .service-story h3 { font-size: 1.8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-story *, .service-story::before, .service-story::after { transition: none; }
+}

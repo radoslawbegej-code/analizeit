@@ -1,0 +1,325 @@
+/* Shared finishing layer for the public pages introduced by PageHero. */
+body {
+  --display: var(--font-display), var(--sans);
+  --motion-fast: 160ms;
+  --motion-base: 280ms;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  font-optical-sizing: auto;
+}
+
+html {
+  scrollbar-color: #667269 #151917;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #151917; }
+::-webkit-scrollbar-thumb { background: #667269; border: 2px solid #151917; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #87938a; }
+::-webkit-scrollbar-thumb:active { background: #a5afa8; }
+
+@media (forced-colors: active) {
+  html { scrollbar-color: auto; }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb { background: Canvas; border-color: Canvas; }
+}
+
+/* Manrope supplies the display voice; Source Sans 3 carries reading and controls. */
+body:has(:is(.digital-hero, .digital-subpage)) :is(h1, h2, h3, .wordmark) {
+  font-family: var(--display);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+body:has(.digital-hero) .digital-hero__copy h1 {
+  font-size: clamp(3rem, 5.4vw, 5.25rem);
+  line-height: 1.08;
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
+
+body:has(.digital-hero) .digital-hero__copy > p {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  max-width: 44ch;
+}
+
+body:has(:is(.digital-hero, .digital-subpage)) .desktop-nav__link,
+body:has(:is(.digital-hero, .digital-subpage)) .header-cta {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+body:has(:is(.digital-hero, .digital-subpage)) .wordmark {
+  font-weight: 700;
+}
+
+body:has(.digital-hero) .home-continuation h2 {
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  line-height: 1.17;
+}
+
+body:has(.digital-hero) .digital-sections p {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.digital-subpage .page-hero h1 {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  line-height: 1.1;
+}
+
+.digital-subpage .page-hero__lead {
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+.digital-subpage :is(.service-detail__body, .legal-content) p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/* One interaction contract: the surface fills and the glyph settles horizontally.
+   Rotate only the glyph so backgrounds, borders and pointer targets stay still. */
+.icon-arrow { flex-shrink: 0; }
+.icon-arrow--diagonal .icon-arrow__glyph { transform: rotate(-45deg); }
+.icon-arrow__glyph { transform-box: view-box; transform-origin: center; }
+
+body :is(a, button) .icon-arrow {
+  --arrow-rest-angle: -45deg;
+  --arrow-surface: var(--digital-accent, var(--accent));
+  --arrow-ink: var(--digital-bg, #fff);
+  box-sizing: content-box;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color var(--motion-base) var(--ease-out), color var(--motion-base) var(--ease-out);
+}
+body :is(a, button) .icon-arrow--left { --arrow-rest-angle: 45deg; }
+body :is(a, button) .icon-arrow__glyph {
+  transform: rotate(var(--arrow-rest-angle));
+  transition: transform var(--motion-base) var(--ease-out);
+}
+
+/* These controls already have a circular surface. Keep their existing geometry. */
+body :is(a, button) :is(.service-story__arrow, .home-company-arrow, .home-round-arrow, .arrow-surface),
+body .header-cta > span {
+  transition: background-color var(--motion-base) var(--ease-out), color var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out);
+}
+body :is(.service-story__arrow, .home-company-arrow, .home-round-arrow, .arrow-surface, .header-cta > span) .icon-arrow {
+  --arrow-surface: transparent;
+  --arrow-ink: inherit;
+  padding: 0;
+  background-color: transparent;
+}
+body :is(.digital-hero__primary, .home-company-contact__link, .about-contact-link, .button--dark) .icon-arrow {
+  --arrow-surface: var(--digital-bg, #151917);
+  --arrow-ink: var(--digital-accent, #d2fa7c);
+}
+
+/* Override legacy whole-icon translations/rotations, including selected tabs. */
+body :is(a, button):has(.icon-arrow) .icon-arrow,
+body :is(a, button):has(.icon-arrow):is(:hover, :focus-visible, [aria-selected="true"]) .icon-arrow {
+  transform: none;
+}
+body .header-cta:is(:hover, :focus-visible) > span { transform: none; }
+body :is(a, button):not(:disabled):not([aria-disabled="true"]):focus-visible .icon-arrow {
+  background-color: var(--arrow-surface);
+  color: var(--arrow-ink);
+}
+body :is(a, button):not(:disabled):not([aria-disabled="true"]):focus-visible .icon-arrow__glyph { transform: rotate(0deg); }
+body :is(a, button):not(:disabled):not([aria-disabled="true"]):focus-visible :is(.service-story__arrow, .home-company-arrow, .home-round-arrow, .arrow-surface),
+body .header-cta:focus-visible > span {
+  background-color: var(--digital-accent, var(--accent));
+  border-color: var(--digital-accent, var(--accent));
+  color: var(--digital-bg, #fff);
+}
+@media (hover: hover) {
+  body :is(a, button):not(:disabled):not([aria-disabled="true"]):hover .icon-arrow {
+    background-color: var(--arrow-surface);
+    color: var(--arrow-ink);
+  }
+  body :is(a, button):not(:disabled):not([aria-disabled="true"]):hover .icon-arrow__glyph { transform: rotate(0deg); }
+  body :is(a, button):not(:disabled):not([aria-disabled="true"]):hover :is(.service-story__arrow, .home-company-arrow, .home-round-arrow, .arrow-surface),
+  body .header-cta:hover > span {
+    background-color: var(--digital-accent, var(--accent));
+    border-color: var(--digital-accent, var(--accent));
+    color: var(--digital-bg, #fff);
+  }
+}
+body .realization-slider__arrows button:not(:disabled):hover { transform: none; }
+.direct-contact__links a:has(.icon-arrow) { display: inline-flex; align-items: center; gap: .5rem; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.page-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  color: var(--digital-muted, #a5afa8);
+  font-size: .8125rem;
+  line-height: 1.5;
+}
+
+.page-breadcrumb a {
+  color: var(--digital-text, #f4f6ed);
+  transition: color var(--motion-fast) ease;
+}
+
+.page-breadcrumb a:hover {
+  color: var(--digital-accent, #d2fa7c);
+}
+
+.page-breadcrumb > span[aria-hidden="true"] {
+  color: #ffffff42;
+}
+
+.site-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  width: fit-content;
+  min-height: 44px;
+  color: var(--digital-text, #f4f6ed);
+  border-bottom: 1px solid #788c6f;
+  font-size: .9rem;
+  transition: color var(--motion-fast) ease, border-color var(--motion-fast) ease;
+}
+
+.site-text-link svg {
+  flex-shrink: 0;
+}
+
+.site-text-link:hover {
+  color: var(--digital-accent, #d2fa7c);
+  border-color: currentColor;
+}
+
+/* Personal introduction: generous type paired with a single photographic crop. */
+.about-intro { padding-top: 140px; }
+.about-intro__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+  margin-top: 2.5rem;
+}
+.digital-subpage .about-intro h1 {
+  margin: 0 0 2rem;
+  font-size: clamp(4rem, 6.5vw, 6rem);
+  line-height: 1.02;
+  font-weight: 500;
+}
+.digital-subpage .about-intro__lead {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  line-height: 1.4;
+  letter-spacing: -.025em;
+  color: var(--digital-text);
+  margin: 0 0 1.2rem;
+}
+.digital-subpage .about-intro__description {
+  max-width: 42ch;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--digital-muted);
+}
+.about-intro__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+.about-contact-link {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  min-height: 54px;
+  padding: .8rem 1.25rem;
+  background: var(--digital-accent);
+  color: #151917;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color var(--motion-fast) ease;
+}
+.about-contact-link:hover { background: #e2ffac; }
+.about-intro__portrait {
+  width: 100%;
+  max-width: 480px;
+  justify-self: end;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--digital-panel);
+  border-radius: 3px;
+}
+.about-intro__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 53% 28%;
+  filter: saturate(.62);
+}
+.about-toolkit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  padding-block: 1.8rem;
+  margin-top: clamp(3rem, 5vw, 5rem);
+  border-block: 1px solid var(--line);
+}
+.digital-subpage .about-toolkit p { color: var(--digital-muted); font-size: .9375rem; margin: 0; }
+.about-toolkit ul { display: flex; flex-wrap: wrap; gap: .75rem 2rem; list-style: none; padding: 0; margin: 0; }
+.digital-subpage .about-toolkit li { font-size: 1rem; color: #d2dbd3; }
+.about-approach { padding-block: clamp(4.5rem, 8vw, 8rem); }
+.about-approach__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(3rem, 8vw, 8rem); }
+.digital-subpage .about-approach h2 { margin: 0 0 2rem; font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.15; }
+.digital-subpage .about-approach p { font-size: 1.125rem; line-height: 1.7; color: var(--digital-muted); }
+.about-approach__intro > p { max-width: 45ch; margin-bottom: 1rem; }
+.about-approach__intro .site-text-link { margin-top: 1rem; }
+.about-approach__principles article { padding-block: 1.75rem; border-top: 1px solid var(--line); }
+.about-approach__principles article:first-child { padding-top: 0; border-top: 0; }
+.about-approach__principles article:last-child { padding-bottom: 0; }
+.digital-subpage .about-approach__principles h3 { font-size: 1.25rem; margin: 0 0 .75rem; letter-spacing: -.02em; }
+.about-approach__principles p { max-width: 48ch; margin: 0; }
+
+@media (max-width: 1000px) {
+  .about-intro { padding-top: 116px; }
+  .about-intro__layout { gap: 2.5rem; }
+  .about-toolkit { align-items: start; flex-direction: column; gap: 1rem; }
+}
+@media (max-width: 760px) {
+  body:has(.digital-hero) .digital-hero__copy h1 { font-size: clamp(2.6rem, 9vw, 4.25rem); }
+  .digital-subpage .page-hero h1 { font-size: clamp(2rem, 8.5vw, 3.75rem); overflow-wrap: break-word; }
+  .about-intro__layout { grid-template-columns: 1fr; margin-top: 2rem; gap: 2.5rem; }
+  .digital-subpage .about-intro h1 { font-size: clamp(3.5rem, 12vw, 5.5rem); margin-bottom: 1.5rem; }
+  .about-intro__portrait { justify-self: start; max-width: 480px; aspect-ratio: 1; }
+  .about-intro__actions { gap: 1rem 1.5rem; }
+  .about-toolkit { margin-top: 2.5rem; }
+  .about-toolkit ul { gap: .6rem 1.5rem; }
+  .about-approach__layout { grid-template-columns: 1fr; gap: 3rem; }
+  .about-approach__principles article:first-child { padding-top: 1.75rem; border-top: 1px solid var(--line); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-breadcrumb a,
+  .site-text-link,
+  .site-text-link svg {
+    transition: none;
+  }
+
+  body :is(a, button) .icon-arrow,
+  body :is(a, button) .icon-arrow__glyph { transition: none; }
+}

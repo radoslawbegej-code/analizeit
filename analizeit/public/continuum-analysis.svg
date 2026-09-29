@@ -1,0 +1,26 @@
+<svg width="1000" height="700" viewBox="100 100 1000 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paperA" x1="260" y1="170" x2="960" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#ECEDEF"/>
+    </linearGradient>
+    <linearGradient id="paperB" x1="250" y1="250" x2="940" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAFB"/>
+      <stop offset="1" stop-color="#D9DBDF"/>
+    </linearGradient>
+    <filter id="shadow" x="120" y="90" width="980" height="760" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#0A1023" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M228 302H950L1002 354V700H228V302Z" fill="url(#paperB)" stroke="#C9CCD1"/>
+    <path d="M201 246H923L975 298V644H201V246Z" fill="#F5F5F6" stroke="#D2D4D8"/>
+    <path d="M174 190H896L948 242V588H174V190Z" fill="url(#paperA)" stroke="#D8DADD"/>
+    <path d="M848 190H896L948 242V290H848V190Z" fill="#1637E8"/>
+    <path d="M848 190L948 290" stroke="#7690FF" stroke-width="2"/>
+    <path d="M253 298H632" stroke="#D8DADF" stroke-width="5" stroke-linecap="round"/>
+    <path d="M253 342H760" stroke="#E1E2E5" stroke-width="5" stroke-linecap="round"/>
+    <path d="M253 386H562" stroke="#E1E2E5" stroke-width="5" stroke-linecap="round"/>
+    <rect x="253" y="472" width="168" height="8" rx="4" fill="#D5D7DC"/>
+  </g>
+</svg>
