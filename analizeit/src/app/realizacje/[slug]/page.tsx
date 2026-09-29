@@ -52,17 +52,43 @@ export default async function RealizationDetailPage({ params }: PageProps) {
           <Link className="realization-back" href="/realizacje">
             <ArrowLeft size={18} /> Wszystkie przykłady
           </Link>
+
           <div className="process-detail__intro">
-            <h1 id="realization-title">{item.title}</h1>
+            <div className="process-detail__title">
+              <h1 id="realization-title">{item.title}</h1>
+              <p>{item.summary}</p>
+            </div>
+
+            <dl className="process-detail__meta">
+              <div>
+                <dt>Obszar</dt>
+                <dd>{item.category}</dd>
+              </div>
+              <div>
+                <dt>Uczestnicy</dt>
+                <dd>{item.roles.join(" · ")}</dd>
+              </div>
+              <div>
+                <dt>Technologie</dt>
+                <dd>{item.technologies.join(" · ")}</dd>
+              </div>
+            </dl>
           </div>
+
           <div className="process-detail__photograph">
-            <Image src={photographs[item.motif]} alt="" fill priority sizes="(max-width: 1400px) 100vw, 1400px" />
+            <Image
+              src={photographs[item.motif]}
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 1400px) 100vw, 1400px"
+            />
           </div>
         </Container>
       </section>
 
       <Container>
-        <section className="process-detail__comparison" aria-label="Problem i rozwiązanie">
+        <section className="process-detail__comparison" aria-label="Problem i model rozwiązania">
           <div>
             <h2>Co utrudnia pracę.</h2>
             <p>{presentation.problem}</p>
@@ -74,34 +100,73 @@ export default async function RealizationDetailPage({ params }: PageProps) {
         </section>
 
         <section className="process-detail__process" aria-labelledby="process-title">
-          <h2 id="process-title">Jak przebiega proces.</h2>
-          <ol className="process-detail__stages">
-            {presentation.stages.map((stage) => (
-              <li key={stage.title}>
-                <h3>{stage.title}</h3>
-                <p>{stage.text}</p>
+          <div className="process-detail__section-heading">
+            <h2 id="process-title">Przebieg procesu.</h2>
+            <p>
+              Kolejność pokazuje logikę przykładowego rozwiązania. Konkretne kroki,
+              role i reguły są zawsze dopasowywane do organizacji.
+            </p>
+          </div>
+
+          <ol className="process-detail__steps">
+            {item.steps.map((step, stepIndex) => (
+              <li key={step.title}>
+                <span className="process-detail__step-number">
+                  {String(stepIndex + 1).padStart(2, "0")}
+                </span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </li>
             ))}
           </ol>
-          <p className="process-detail__technology">{item.technologies.join(" · ")}</p>
+        </section>
+
+        <section className="process-detail__integrations" aria-labelledby="integrations-title">
+          <div className="process-detail__section-heading">
+            <h2 id="integrations-title">Integracje i automatyzacja.</h2>
+            <p>
+              Technologia ma wspierać przebieg procesu i kontrolę danych, a nie tworzyć
+              dodatkową warstwę obsługi dla użytkownika.
+            </p>
+          </div>
+
+          <div className="process-detail__integration-list">
+            {item.integrations.map((integration) => (
+              <article key={integration.title}>
+                <h3>{integration.title}</h3>
+                <p>{integration.description}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="process-detail__outcomes" aria-labelledby="effects-title">
-          <h2 id="effects-title">Co zmienia taki proces.</h2>
-          <ul>{item.effects.map((effect) => <li key={effect}>{effect}</li>)}</ul>
+          <div className="process-detail__section-heading">
+            <h2 id="effects-title">Co ma się zmienić.</h2>
+            <p>
+              Efekt powinien być widoczny w sposobie pracy i jakości informacji,
+              nie tylko w samym uruchomieniu nowego obiegu.
+            </p>
+          </div>
+
+          <ul>
+            {item.effects.map((effect) => <li key={effect}>{effect}</li>)}
+          </ul>
+
           <p className="process-detail__note">
-            Zakres efektów zależy od organizacji, jakości danych i przyjętego sposobu wdrożenia.
+            To model przykładowy. Zakres efektów zależy od organizacji, jakości danych
+            i przyjętego sposobu wdrożenia.
           </p>
         </section>
 
         <section className="process-detail__contact" aria-labelledby="contact-title">
-          <h2 id="contact-title">Masz podobny<br />proces?</h2>
+          <h2 id="contact-title">Masz podobny proces,<br />ale inne reguły?</h2>
           <Link href="/kontakt">Porozmawiajmy <ArrowUpRight size={28} /></Link>
         </section>
 
         <Link className="process-detail__next" href={`/realizacje/${next.slug}`}>
           <div>
-            <span>Zobacz także</span>
+            <span>Następny przykład</span>
             <h2>{next.title}</h2>
           </div>
           <ArrowUpRight size={30} />
