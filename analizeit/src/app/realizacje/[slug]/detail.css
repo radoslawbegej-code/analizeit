@@ -1,10 +1,10 @@
 .process-detail__hero { padding: 132px 0 0; }
 .process-detail .realization-back { margin-bottom: 2.5rem; font-size: .9rem; }
 .process-detail__intro { margin-bottom: 3rem; }
-.process-detail__intro h1 { margin: 0; max-width: 24ch; font-size: clamp(2.7rem, 5.5vw, 5.5rem); line-height: 1.05; letter-spacing: -.06em; font-weight: 500; text-wrap: balance; }
+.process-detail__intro h1 { margin: 0; max-width: 24ch; font-size: clamp(2.7rem, 5.5vw, 5.5rem); line-height: 1.05; letter-spacing: -.04em; font-weight: 500; text-wrap: balance; }
 .process-detail__photograph { position: relative; aspect-ratio: 2.5 / 1; overflow: hidden; border-radius: 3px; background: #29332e; }
 .process-detail__photograph img { object-fit: cover; filter: saturate(.7) brightness(.85); }
-.process-detail h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 500; line-height: 1.15; letter-spacing: -.045em; text-wrap: balance; }
+.process-detail h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 500; line-height: 1.15; letter-spacing: -.035em; text-wrap: balance; }
 .process-detail__comparison { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 7vw, 7rem); padding: clamp(3rem, 5vw, 5rem) 0; }
 .process-detail__comparison h2 { font-size: clamp(1.5rem, 2.2vw, 2.2rem); }
 .process-detail__comparison p { max-width: 46ch; color: var(--digital-muted); line-height: 1.8; margin: 1.2rem 0 0; font-size: 1.05rem; }
@@ -23,8 +23,7 @@
 .process-detail__contact { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding: clamp(3.5rem, 7vw, 7rem) 0; }
 .process-detail__contact h2 { font-size: clamp(2.5rem, 5vw, 5rem); }
 .process-detail__contact a { display: inline-flex; align-items: center; justify-content: space-between; gap: 3rem; color: var(--digital-accent); padding: 1rem 0; border-bottom: 1px solid #738861; font-size: 1.15rem; }
-.process-detail__contact a svg, .process-detail__next > svg { flex-shrink: 0; transition: transform 250ms; }
-.process-detail__contact a:hover svg, .process-detail__next:hover > svg { transform: translate(4px, -4px); }
+.process-detail__contact a svg, .process-detail__next > svg { flex-shrink: 0; }
 .process-detail__next { display: flex; justify-content: space-between; align-items: center; gap: 2rem; border-top: 1px solid var(--line); padding: 2.5rem 0 4rem; }
 .process-detail__next span { display: block; color: var(--digital-muted); font-size: .875rem; margin-bottom: .8rem; }
 .process-detail__next h2 { font-size: clamp(1.4rem, 2.3vw, 2rem); }
@@ -41,7 +40,4 @@
   .process-detail__comparison, .process-detail__stages, .process-detail__outcomes ul { grid-template-columns: 1fr; }
   .process-detail__stages { gap: 1.8rem; }
   .process-detail__comparison p, .process-detail__stages p { max-width: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .process-detail__contact a svg, .process-detail__next > svg { transition: none; }
 }
