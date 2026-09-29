@@ -7,47 +7,33 @@ import "./realization-grid.css";
 
 export function RealizationGrid({ items }: { items: Realization[] }) {
   return (
-    <div className="process-index">
+    <div className="process-list">
       {items.map((item, index) => (
-        <article className="process-index__entry" key={item.slug}>
+        <article className="process-list__item" key={item.slug}>
           <Link
-            className="process-index__link"
+            className="process-list__link"
             href={`/realizacje/${item.slug}`}
             aria-labelledby={`${item.slug}-title`}
           >
-            <div className="process-index__media">
+            <div className="process-list__media">
               <Image
                 src={realizationPhotographs[item.motif]}
                 alt=""
                 fill
-                sizes="(max-width: 760px) 92vw, (max-width: 1200px) 34vw, 430px"
+                sizes="(max-width: 760px) 92vw, (max-width: 1200px) 44vw, 560px"
                 priority={index === 0}
               />
             </div>
 
-            <div className="process-index__content">
-              <span className="process-index__category">{item.category}</span>
-              <h3 id={`${item.slug}-title`}>{item.title}</h3>
+            <div className="process-list__copy">
+              <h2 id={`${item.slug}-title`}>{item.title}</h2>
               <p>{item.summary}</p>
-            </div>
-
-            <dl className="process-index__meta">
-              <div>
-                <dt>Uczestnicy</dt>
-                <dd>{item.roles.join(" · ")}</dd>
-              </div>
-              <div>
-                <dt>Technologie</dt>
-                <dd>{item.technologies.join(" · ")}</dd>
-              </div>
-            </dl>
-
-            <span className="process-index__action" aria-hidden="true">
-              <span>Otwórz przykład</span>
-              <span className="arrow-surface">
-                <ArrowUpRight size={22} />
+              <p className="process-list__technology">{item.technologies.join(" · ")}</p>
+              <span className="process-list__action">
+                Zobacz przebieg
+                <ArrowUpRight size={20} />
               </span>
-            </span>
+            </div>
           </Link>
         </article>
       ))}
