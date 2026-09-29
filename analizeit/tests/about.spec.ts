@@ -26,7 +26,7 @@ test("strona O mnie ma redakcyjną hierarchię, formularz i ambient process flow
   await jumpToForm.focus();
   await expect(jumpToForm).toBeFocused();
 
-  await page.getByLabel("Imię / firma").fill("Jan Kowalski");
+  await page.getByLabel("Imię i nazwisko").fill("Jan Kowalski");
   await page.getByLabel("E-mail").fill("jan@example.com");
   await page.getByLabel("O czym porozmawiamy?").fill(
     "Chcemy uporządkować proces akceptacji kosztów i integrację z ERP.",
