@@ -38,7 +38,7 @@ export function SiteFooter() {
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} {siteConfig.legalName}</span>
         <span>{siteConfig.owner}</span>
-        <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
+        <Link href="/polityka-prywatnosci">Prywatność</Link>
       </div>
     </footer>
   );
