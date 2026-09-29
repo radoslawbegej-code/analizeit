@@ -27,7 +27,7 @@ export function ContactForm() {
     const website = String(form.get("website") || "").trim();
 
     if (website) return;
-    if (name.length < 2) nextErrors.name = "Wpisz imię lub nazwę firmy.";
+    if (name.length < 2) nextErrors.name = "Wpisz imię i nazwisko.";
     if (!emailPattern.test(email)) nextErrors.email = "Wpisz poprawny adres e-mail.";
     if (message.length < 20) nextErrors.message = "Opisz temat w co najmniej 20 znakach.";
     if (!consent) nextErrors.consent = "Zaznacz zgodę, aby wysłać wiadomość.";
@@ -70,10 +70,10 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" noValidate onSubmit={handleSubmit}>
+    <form aria-busy={submitState === "sending"} className="contact-form" noValidate onSubmit={handleSubmit}>
       <div className="form-row">
         <label className="field">
-          <span>Imię / firma</span>
+          <span>Imię i nazwisko</span>
           <input
             aria-describedby={errors.name ? "name-error" : undefined}
             aria-invalid={Boolean(errors.name)}
@@ -151,7 +151,7 @@ export function ContactForm() {
           <ArrowUpRight size={20} />
         </button>
         <span className="form-submit__note">
-          Bez newslettera i automatycznych sekwencji sprzedażowych.
+          Odpowiedź otrzymasz na podany adres e-mail.
         </span>
       </div>
 
