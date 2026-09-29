@@ -339,6 +339,17 @@ body:has(:is(.digital-hero, .digital-subpage)) .ambient-process {
   pointer-events: none;
 }
 
+body:has(:is(.digital-hero, .digital-subpage)) :is(
+  .digital-hero .container,
+  .digital-sections .container,
+  .digital-subpage .container,
+  .service-stories,
+  .site-footer
+) {
+  position: relative;
+  z-index: 7;
+}
+
 .ambient-process svg {
   position: absolute;
   overflow: visible;
@@ -366,6 +377,7 @@ body:has(:is(.digital-hero, .digital-subpage)) .ambient-process {
   right: -12vw;
   width: min(48vw, 760px);
   height: 96vh;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%);
 }
 
@@ -375,6 +387,7 @@ body:has(:is(.digital-hero, .digital-subpage)) .ambient-process {
   width: min(38vw, 620px);
   height: 78vh;
   opacity: .65;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 82%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 82%, transparent 100%);
 }
 
