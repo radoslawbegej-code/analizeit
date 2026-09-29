@@ -34,11 +34,11 @@ export function RealizationGrid({ items }: { items: Realization[] }) {
             <dl className="process-index__meta">
               <div>
                 <dt>Uczestnicy</dt>
-                <dd>{item.roles.slice(0, 3).join(" · ")}</dd>
+                <dd>{item.roles.join(" · ")}</dd>
               </div>
               <div>
                 <dt>Technologie</dt>
-                <dd>{item.technologies.slice(0, 3).join(" · ")}</dd>
+                <dd>{item.technologies.join(" · ")}</dd>
               </div>
             </dl>
 
