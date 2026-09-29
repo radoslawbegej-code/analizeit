@@ -7,22 +7,47 @@ import "./realization-grid.css";
 
 export function RealizationGrid({ items }: { items: Realization[] }) {
   return (
-    <div className="project-catalog">
+    <div className="process-index">
       {items.map((item, index) => (
-        <article className={`project-entry${index === 0 ? " project-entry--featured" : ""}`} key={item.slug}>
-          <Link className="project-entry__link" href={`/realizacje/${item.slug}`} aria-labelledby={`${item.slug}-title`}>
-            <div className="project-entry__image">
-              <Image src={realizationPhotographs[item.motif]} alt="" fill
-                sizes="(max-width: 700px) 90vw, (max-width: 1400px) 46vw, 620px"
-                priority={index === 0} />
+        <article className="process-index__entry" key={item.slug}>
+          <Link
+            className="process-index__link"
+            href={`/realizacje/${item.slug}`}
+            aria-labelledby={`${item.slug}-title`}
+          >
+            <div className="process-index__media">
+              <Image
+                src={realizationPhotographs[item.motif]}
+                alt=""
+                fill
+                sizes="(max-width: 760px) 92vw, (max-width: 1200px) 34vw, 430px"
+                priority={index === 0}
+              />
             </div>
-            <div className="project-entry__body">
-              <span className="project-entry__category">{item.category.toLocaleLowerCase("pl-PL")}</span>
+
+            <div className="process-index__content">
+              <span className="process-index__category">{item.category}</span>
               <h3 id={`${item.slug}-title`}>{item.title}</h3>
               <p>{item.summary}</p>
-              <p className="project-entry__technology">{item.technologies.slice(0, 3).join(" · ")}</p>
-              <span className="project-entry__action">Zobacz przykład <span className="arrow-surface" aria-hidden="true"><ArrowUpRight size={22} /></span></span>
             </div>
+
+            <dl className="process-index__meta">
+              <div>
+                <dt>Uczestnicy</dt>
+                <dd>{item.roles.slice(0, 3).join(" · ")}</dd>
+              </div>
+              <div>
+                <dt>Technologie</dt>
+                <dd>{item.technologies.slice(0, 3).join(" · ")}</dd>
+              </div>
+            </dl>
+
+            <span className="process-index__action" aria-hidden="true">
+              <span>Otwórz przykład</span>
+              <span className="arrow-surface">
+                <ArrowUpRight size={22} />
+              </span>
+            </span>
           </Link>
         </article>
       ))}
