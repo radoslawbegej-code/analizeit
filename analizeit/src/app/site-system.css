@@ -323,3 +323,106 @@ body .realization-slider__arrows button:not(:disabled):hover { transform: none; 
   body :is(a, button) .icon-arrow,
   body :is(a, button) .icon-arrow__glyph { transition: none; }
 }
+
+
+/* Ambient process flow: a quiet global layer tied to the product language. */
+.ambient-process {
+  display: none;
+}
+
+body:has(:is(.digital-hero, .digital-subpage)) .ambient-process {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+body:has(:is(.digital-hero, .digital-subpage)) :is(
+  .digital-hero .container,
+  .digital-sections .container,
+  .digital-subpage .container,
+  .service-stories,
+  .site-footer
+) {
+  position: relative;
+  z-index: 7;
+}
+
+.ambient-process svg {
+  position: absolute;
+  overflow: visible;
+}
+
+.ambient-process path {
+  fill: none;
+  stroke: rgba(210, 250, 124, .085);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.ambient-process path:nth-of-type(2) {
+  stroke: rgba(244, 246, 237, .055);
+  stroke-dasharray: 10 18;
+  animation: ambient-process-flow 24s linear infinite;
+}
+
+.ambient-process circle {
+  fill: rgba(210, 250, 124, .19);
+}
+
+.ambient-process__right {
+  top: 4vh;
+  right: -12vw;
+  width: min(48vw, 760px);
+  height: 96vh;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 86%, transparent 100%);
+}
+
+.ambient-process__left {
+  left: -14vw;
+  bottom: -10vh;
+  width: min(38vw, 620px);
+  height: 78vh;
+  opacity: .65;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 82%, transparent 100%);
+}
+
+@keyframes ambient-process-flow {
+  to {
+    stroke-dashoffset: -224;
+  }
+}
+
+@media (max-width: 760px) {
+  .ambient-process__left {
+    display: none;
+  }
+
+  .ambient-process__right {
+    top: 12vh;
+    right: -66vw;
+    width: 100vw;
+    opacity: .72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-process path:nth-of-type(2) {
+    animation: none;
+  }
+}
+
+
+body:has(:is(.digital-hero, .digital-subpage)) .site-header {
+  z-index: 20;
+}
+
+@media (forced-colors: active) {
+  .ambient-process {
+    display: none !important;
+  }
+}

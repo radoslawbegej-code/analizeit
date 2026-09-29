@@ -7,21 +7,32 @@ import "./realization-grid.css";
 
 export function RealizationGrid({ items }: { items: Realization[] }) {
   return (
-    <div className="project-catalog">
+    <div className="process-list">
       {items.map((item, index) => (
-        <article className={`project-entry${index === 0 ? " project-entry--featured" : ""}`} key={item.slug}>
-          <Link className="project-entry__link" href={`/realizacje/${item.slug}`} aria-labelledby={`${item.slug}-title`}>
-            <div className="project-entry__image">
-              <Image src={realizationPhotographs[item.motif]} alt="" fill
-                sizes="(max-width: 700px) 90vw, (max-width: 1400px) 46vw, 620px"
-                priority={index === 0} />
+        <article className="process-list__item" key={item.slug}>
+          <Link
+            className="process-list__link"
+            href={`/realizacje/${item.slug}`}
+            aria-labelledby={`${item.slug}-title`}
+          >
+            <div className="process-list__media">
+              <Image
+                src={realizationPhotographs[item.motif]}
+                alt=""
+                fill
+                sizes="(max-width: 760px) 92vw, (max-width: 1200px) 44vw, 560px"
+                priority={index === 0}
+              />
             </div>
-            <div className="project-entry__body">
-              <span className="project-entry__category">{item.category.toLocaleLowerCase("pl-PL")}</span>
-              <h3 id={`${item.slug}-title`}>{item.title}</h3>
+
+            <div className="process-list__copy">
+              <h2 id={`${item.slug}-title`}>{item.title}</h2>
               <p>{item.summary}</p>
-              <p className="project-entry__technology">{item.technologies.slice(0, 3).join(" · ")}</p>
-              <span className="project-entry__action">Zobacz przykład <span className="arrow-surface" aria-hidden="true"><ArrowUpRight size={22} /></span></span>
+              <p className="process-list__technology">{item.technologies.join(" · ")}</p>
+              <span className="process-list__action">
+                Zobacz przebieg
+                <ArrowUpRight size={20} />
+              </span>
             </div>
           </Link>
         </article>

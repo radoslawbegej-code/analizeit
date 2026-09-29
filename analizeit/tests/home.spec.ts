@@ -4,6 +4,7 @@ test("strona główna zachowuje hierarchię i mieści się w widoku", async ({ p
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.locator(".ambient-process")).toHaveCount(1);
   const skipLink = page.getByRole("link", { name: "Przejdź do treści" });
   expect(await skipLink.evaluate(element => element.getBoundingClientRect().bottom)).toBeLessThanOrEqual(0);
   await page.keyboard.press("Tab");
@@ -11,9 +12,9 @@ test("strona główna zachowuje hierarchię i mieści się w widoku", async ({ p
   await expect.poll(async () => skipLink.evaluate(element => element.getBoundingClientRect().top)).toBeGreaterThanOrEqual(0);
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
   await expect.poll(async () => skipLink.evaluate(element => element.getBoundingClientRect().bottom)).toBeLessThanOrEqual(0);
-  const deliverySection = page.getByRole("region", { name: /Uzgodniony zakres/i });
+  const deliverySection = page.getByRole("region", { name: /Najpierw proces/i });
   await expect(deliverySection).toBeVisible();
-  await expect(deliverySection.getByText("ustalamy zakres.")).toBeVisible();
+  await expect(deliverySection.getByText("Proces przed formularzem")).toBeVisible();
   await expect(deliverySection.locator("img, ol")).toHaveCount(0);
 
   await deliverySection.scrollIntoViewIfNeeded();

@@ -17,6 +17,7 @@ export default function ServicesPage() {
   return (
     <div className="digital-subpage">
       <PageHero eyebrow={servicesPageContent.eyebrow} lead={servicesPageContent.lead} title={servicesPageContent.title} />
+
       <section className="service-detail-section">
         <Container>
           {services.map((service) => (
@@ -34,6 +35,7 @@ export default function ServicesPage() {
           ))}
         </Container>
       </section>
+
       <section className="architecture-section section-pad">
         <Container>
           <SectionHeading
@@ -44,20 +46,26 @@ export default function ServicesPage() {
           <ArchitectureDiagram />
         </Container>
       </section>
+
       <section className="collaboration-section section-pad">
         <Container>
           <SectionHeading eyebrow={servicesPageContent.modelEyebrow} title={servicesPageContent.modelTitle} />
           <div className="scenario-grid scenario-grid--light">
             {scenarios.map((scenario) => (
               <article className="scenario-card" key={scenario.number}>
-                <div><h3>{scenario.title}</h3><p>{scenario.body}</p></div>
+                <div>
+                  <h3>{scenario.title}</h3>
+                  <p>{scenario.body}</p>
+                </div>
               </article>
             ))}
           </div>
         </Container>
       </section>
-      <Container className="cta-wrap"><CtaBand eyebrow="Porozmawiajmy o zakresie" title="Dobierzmy właściwy punkt wejścia." /></Container>
+
+      <Container className="cta-wrap">
+        <CtaBand title="Masz proces, integrację albo istniejące rozwiązanie do uporządkowania?" />
+      </Container>
     </div>
   );
 }
-

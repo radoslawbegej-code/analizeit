@@ -10,7 +10,6 @@ export function StructuredData() {
       url: siteConfig.url,
       description: siteConfig.description,
       areaServed: "PL",
-      founder: { "@id": `${siteConfig.url}/#person` },
     },
     {
       "@type": "Person",
@@ -19,6 +18,7 @@ export function StructuredData() {
       jobTitle: "WEBCON BPS Developer",
       worksFor: { "@id": `${siteConfig.url}/#business` },
       url: `${siteConfig.url}/o-mnie`,
+      ...(siteConfig.contact.linkedin ? { sameAs: [siteConfig.contact.linkedin] } : {}),
     },
   ];
 

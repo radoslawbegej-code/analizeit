@@ -15,6 +15,8 @@ Język wizualny: ciemny, spokojny, redakcyjny i techniczny. Minimalizm oznacza p
 
 Jednym rozpoznawalnym motywem jest uporządkowany przepływ: linie, relacje i sekwencje mają obrazować sposób pracy tylko wtedy, gdy odpowiadają realnej strukturze procesu.
 
+Globalne tło publicznych widoków może wykorzystywać bardzo subtelne linie przepływu procesu przy krawędziach ekranu. To warstwa ambientowa, nie diagram: niska kontrastowość, brak interakcji, brak przecinania głównej hierarchii treści i wyłączenie ruchu przy `prefers-reduced-motion`. Nie zastępować jej blobami, glow ani dekoracyjną siatką.
+
 ## Tokeny
 
 - Tło główne: `#151917` (`--digital-bg`).

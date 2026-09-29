@@ -1,7 +1,7 @@
 body:has(.new-home):has(.digital-hero) { --digital-bg: #151917; --digital-panel: #1d2320; --digital-text: #f4f6ed; --digital-muted: #a5afa8; --digital-accent: #d2fa7c; }
 body:has(.new-home):has(.digital-hero) .site-header { color: var(--digital-text); background: var(--digital-bg); border: 0; }
 body:has(.new-home):has(.digital-hero) .site-header__inner { border-bottom: 1px solid #ffffff17; }
-body:has(.new-home):has(.digital-hero) .wordmark--compact { font-size: 1.45rem; letter-spacing: -.065em; }
+body:has(.new-home):has(.digital-hero) .wordmark--compact { font-size: 1.45rem; letter-spacing: -.04em; }
 body:has(.new-home):has(.digital-hero) .wordmark__dot { color: var(--digital-accent); }
 body:has(.new-home):has(.digital-hero) .desktop-nav__link { color: #d9dfd9; font-size: .9rem; }
 body:has(.new-home):has(.digital-hero) .desktop-nav__link:hover { color: var(--digital-accent); }
@@ -15,12 +15,12 @@ body:has(.new-home):has(.digital-hero) .mobile-nav { background: var(--digital-b
 .digital-hero__eyebrow > span { width: 7px; height: 7px; border-radius: 50%; background: var(--digital-accent); box-shadow: 0 0 0 5px #d2fa7c0d; }
 .digital-hero__platform { font-size: .875rem; color: var(--digital-muted); }
 .digital-hero__layout { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: clamp(2rem,5vw,5rem); align-items: center; padding-bottom: 4rem; }
-.digital-hero__copy h1 { margin: 0; font-family: var(--sans); font-size: clamp(3.6rem,6.1vw,6rem); line-height: 1.02; letter-spacing: -.07em; font-weight: 500; }
+.digital-hero__copy h1 { margin: 0; font-family: var(--sans); font-size: clamp(3.6rem,6.1vw,6rem); line-height: 1.02; letter-spacing: -.04em; font-weight: 500; }
 .digital-hero__copy h1 em { display: block; color: var(--digital-accent); font-weight: 500; font-style: normal; }
 .digital-hero__copy > p { font-size: 1.05rem; line-height: 1.75; color: var(--digital-muted); max-width: 29rem; margin: 2rem 0; }
 .digital-hero__actions { display: flex; align-items: flex-start; gap: 1.2rem; flex-direction: column; }
-.digital-hero__primary { display: inline-flex; justify-content: space-between; align-items: center; gap: 1.6rem; padding: 1.1rem 1.3rem; border-radius: 7px; background: var(--digital-accent); color: #1a2114; font-size: .95rem; font-weight: 600; transition: background 180ms, transform 180ms; }
-.digital-hero__primary:hover { background: #e2ffac; transform: translateY(-2px); }
+.digital-hero__primary { display: inline-flex; justify-content: space-between; align-items: center; gap: 1.6rem; padding: 1.1rem 1.3rem; border-radius: 4px; background: var(--digital-accent); color: #1a2114; font-size: .95rem; font-weight: 600; transition: background-color 180ms ease; }
+.digital-hero__primary:hover { background: #e2ffac; }
 .digital-hero__secondary { display: inline-flex; align-items: center; gap: .75rem; font-size: .9rem; color: #d2d9d2; padding-block: .35rem; }
 .digital-hero__secondary:hover { color: var(--digital-accent); }
 .digital-hero a:focus-visible { outline: 2px solid var(--digital-accent); outline-offset: 5px; }
@@ -80,7 +80,7 @@ body:has(.new-home):has(.digital-hero) .mobile-nav { background: var(--digital-b
 .invoice-preview__source { font-size: .875rem; color: #5a6554; padding-top: .25rem; white-space: nowrap; }
 .invoice-preview__amount { padding: 2.5rem 0 1.7rem; border-bottom: 1px solid #26322030; }
 .invoice-preview__amount > span { font-size: .875rem; color: #58634f; display: block; margin-bottom: .6rem; }
-.invoice-preview__amount > strong { font-size: clamp(2.5rem,4.3vw,4.2rem); font-weight: 500; letter-spacing: -.06em; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.invoice-preview__amount > strong { font-size: clamp(2.5rem,4.3vw,4.2rem); font-weight: 500; letter-spacing: -.04em; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
 .invoice-preview__amount > strong > span { font-size: .5em; font-weight: 400; letter-spacing: -.035em; color: #58634f; }
 .invoice-preview__details { margin: 1rem 0 2rem; }
 .invoice-preview__details > div { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1rem; padding: .65rem 0; font-size: .9rem; line-height: 1.5; }
@@ -200,6 +200,6 @@ body:has(.new-home):has(.digital-hero) .mobile-nav { background: var(--digital-b
 }
 
 
-.digital-hero__copy h1.digital-hero__title { font-size: clamp(2.8rem,4.6vw,4.6rem); line-height: 1.08; letter-spacing: -.055em; }
+.digital-hero__copy h1.digital-hero__title { font-size: clamp(2.8rem,4.6vw,4.6rem); line-height: 1.08; letter-spacing: -.04em; }
 @media(max-width:760px) { .digital-hero__copy h1.digital-hero__title { font-size: clamp(2.6rem,9.5vw,3.6rem); } }
 

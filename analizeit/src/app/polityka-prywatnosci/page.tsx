@@ -5,8 +5,8 @@ import { PageHero } from "@/components/page-hero";
 import { privacyContent } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Polityka prywatności",
-  description: "Informacje o prywatności i przetwarzaniu danych w serwisie ANALIZE.",
+  title: "Prywatność",
+  description: "Informacje o prywatności, danych technicznych i zewnętrznych kanałach kontaktu w serwisie ANALIZE.",
   alternates: { canonical: "/polityka-prywatnosci" },
   robots: { index: false, follow: true },
 };

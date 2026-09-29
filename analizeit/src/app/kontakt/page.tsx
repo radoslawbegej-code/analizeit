@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { ContactForm } from "@/components/contact-form";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
 import { ArrowUpRight } from "@/components/icons";
@@ -13,39 +12,43 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const hasDirectContact = Boolean(siteConfig.contact.email || siteConfig.contact.phone || siteConfig.contact.linkedin);
-
   return (
-    <div className="digital-subpage">
+    <div className="digital-subpage contact-page">
       <PageHero eyebrow={contactContent.eyebrow} lead={contactContent.lead} title={contactContent.title} />
-      <section className="contact-section">
+
+      <section className="contact-section" aria-labelledby="contact-direct-title">
         <Container>
-          <div className="contact-grid">
-            <div className="contact-form-wrap">
-              <h2>{contactContent.formTitle}</h2>
-              <ContactForm />
+          <div className="contact-direct">
+            <div className="contact-direct__intro">
+              <h2 id="contact-direct-title">Na początek wystarczy kontekst.</h2>
+              <p>
+                Napisz, jaki proces chcesz uporządkować, na jakim etapie jest projekt
+                i co dziś wymaga najwięcej ręcznej pracy albo pilnowania.
+              </p>
             </div>
-            <aside className="direct-contact">
-              <h2>{contactContent.directTitle}</h2>
-              {hasDirectContact ? (
-                <div className="direct-contact__links">
-                  {siteConfig.contact.email ? <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a> : null}
-                  {siteConfig.contact.phone ? <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}>{siteConfig.contact.phone}</a> : null}
-                  {siteConfig.contact.linkedin ? <a href={siteConfig.contact.linkedin} rel="noreferrer" target="_blank">LinkedIn <ArrowUpRight size={20} /></a> : null}
-                </div>
-              ) : (
-                <div className="direct-contact__empty"><span>!</span><p>{contactContent.unavailable}</p></div>
-              )}
-              <div className="direct-contact__meta">
-                <span>Marka</span><strong>{siteConfig.name}</strong>
-                <span>Ekspert</span><strong>{siteConfig.owner}</strong>
-                <span>Specjalizacja</span><strong>Digitalizacja procesów</strong>
-              </div>
-            </aside>
+
+            <div className="contact-direct__action">
+              <p>
+                Nie potrzebujesz gotowej specyfikacji. Kilka zdań o obecnym sposobie pracy
+                wystarczy, żeby ustalić sensowny kolejny krok.
+              </p>
+
+              {siteConfig.contact.linkedin ? (
+                <a
+                  className="contact-direct__link"
+                  href={siteConfig.contact.linkedin}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Napisz na LinkedIn
+                  <ArrowUpRight size={22} />
+                  <span className="visually-hidden"> — otwiera się w nowej karcie</span>
+                </a>
+              ) : null}
+            </div>
           </div>
         </Container>
       </section>
     </div>
   );
 }
-

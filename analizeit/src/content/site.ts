@@ -30,7 +30,7 @@ export const siteConfig = {
   url: configuredUrl || "https://analize.example",
   locale: "pl_PL",
   description:
-    "Projektowanie, rozwój i optymalizacja rozwiązań procesowych w WEBCON BPS — od analizy do działającego wdrożenia.",
+    "Digitalizacja procesów w WEBCON BPS, integracje systemów, Power BI, SSRS i SQL Server — od analizy po rozwój działającego rozwiązania.",
   contact: {
     email: null as string | null,
     phone: null as string | null,
@@ -197,15 +197,15 @@ export const processSteps = [
 
 export const servicesPageContent = {
   eyebrow: "Usługi",
-  title: "Procesy, raporty i bazy danych.",
+  title: "WEBCON BPS, integracje i dane.",
   lead:
-    "Projektuję aplikacje procesowe, integruję systemy, przygotowuję raporty i pracuję z bazami SQL Server. Mogę poprowadzić wdrożenie albo przejąć konkretne zadanie w Twoim projekcie.",
+    "Projektuję i rozwijam rozwiązania procesowe w WEBCON BPS, łączę je z ERP, KSeF i API, a dane wykorzystuję w Power BI, SSRS i SQL Server. Mogę poprowadzić całość albo wejść w konkretny fragment projektu.",
   modelEyebrow: "Model współpracy",
-  modelTitle: "Współpraca dopasowana do projektu.",
+  modelTitle: "Cały projekt albo konkretny obszar.",
   architectureEyebrow: "Architektura rozwiązania",
-  architectureTitle: "Obieg połączony z Twoimi systemami.",
+  architectureTitle: "Proces nie działa w izolacji.",
   architectureBody:
-    "Projekt obejmuje nie tylko obieg, ale też źródła danych, warstwę reguł, punkty integracji oraz dalsze wykorzystanie informacji.",
+    "Dlatego projekt obejmuje również dane wejściowe, reguły biznesowe, integracje z systemami źródłowymi oraz sposób wykorzystania informacji po zakończeniu obiegu.",
 };
 
 export const caseStudies: CaseStudy[] = [];
@@ -254,12 +254,12 @@ export const aboutContent = {
       body: "Zanim powstanie formularz, ustalam, które kroki są potrzebne, kto za nie odpowiada i gdzie można uprościć obieg.",
     },
     {
-      title: "Czytelne decyzje",
-      body: "Założenia, ograniczenia i kompromisy techniczne powinny być zrozumiałe dla obu stron.",
+      title: "Jawne decyzje projektowe",
+      body: "Założenia, ograniczenia i kompromisy techniczne zapisuję tak, żeby było wiadomo, dlaczego rozwiązanie działa właśnie w ten sposób.",
     },
     {
-      title: "Utrzymanie po wdrożeniu",
-      body: "Porządkuję reguły i dokumentuję rozwiązanie, żeby kolejna zmiana nie wymagała odtwarzania całej historii projektu.",
+      title: "Rozwój bez odtwarzania projektu",
+      body: "Porządkuję logikę i dokumentuję kluczowe założenia, żeby kolejne zmiany nie zaczynały się od ponownego odkrywania istniejącego rozwiązania.",
     },
   ],
   competencies: [
@@ -277,38 +277,35 @@ export const aboutContent = {
 
 export const contactContent = {
   eyebrow: "Kontakt",
-  title: "Porozmawiajmy o Twoim procesie.",
+  title: "Porozmawiajmy o procesie, który chcesz usprawnić.",
   lead:
-    "Opisz krótko sytuację, cel i etap projektu. Wrócę z informacją, czy i w jakim zakresie mogę pomóc.",
-  formTitle: "Napisz wiadomość",
-  directTitle: "Kontakt bez formularza",
-  unavailable:
-    "Dane kontaktowe zostaną uzupełnione przed publikacją serwisu.",
+    "Napisz, jak wygląda dziś praca, na jakim etapie jest projekt i co wymaga uporządkowania. Na tej podstawie łatwiej ustalić właściwy zakres rozmowy.",
 };
 
 export const privacyContent = {
-  eyebrow: "Informacje formalne",
-  title: "Polityka prywatności",
-  updated: "Wersja robocza · przed publikacją",
+  eyebrow: "Prywatność",
+  title: "Prywatność w serwisie",
+  updated: "Informacja o obecnej wersji strony",
   sections: [
     {
-      title: "Status obecnej wersji",
+      title: "Formularz kontaktowy",
       paragraphs: [
-        "Formularz kontaktowy w tej wersji serwisu działa demonstracyjnie. Wprowadzone dane nie są wysyłane ani zapisywane.",
-        "Przed uruchomieniem formularza polityka zostanie uzupełniona o dane administratora, podstawę i cel przetwarzania, czas przechowywania oraz prawa użytkownika.",
+        "Formularz może przekazywać imię lub nazwę firmy, adres e-mail, nazwę organizacji oraz treść wiadomości do skonfigurowanego kanału kontaktowego.",
+        "Dane są wykorzystywane wyłącznie do obsługi zapytania i odpowiedzi. Przed publikacją należy uzupełnić tę informację o dane administratora, dostawcę kanału wysyłki oraz okres przechowywania zgodny z docelową konfiguracją.",
       ],
     },
     {
-      title: "Dane techniczne",
+      title: "Kontakt przez LinkedIn",
       paragraphs: [
-        "Pierwsza wersja nie korzysta z narzędzi analitycznych ani reklamowych i nie ustawia opcjonalnych plików cookies.",
-        "Po wdrożeniu dostawca hostingu może przetwarzać standardowe dane techniczne niezbędne do bezpiecznego udostępniania strony. Szczegóły zostaną opisane po wyborze docelowej konfiguracji domeny i hostingu.",
+        "Odnośnik kontaktowy prowadzi do zewnętrznego serwisu LinkedIn. Po przejściu na tę stronę obowiązują zasady prywatności i przetwarzania danych określone przez operatora LinkedIn.",
+        "Informacje przekazane dobrowolnie w wiadomości mogą zostać wykorzystane do odpowiedzi i rozmowy o potencjalnej współpracy.",
       ],
     },
     {
-      title: "Kontakt",
+      title: "Dane techniczne i cookies",
       paragraphs: [
-        "Docelowe dane kontaktowe i pełne dane działalności zostaną dodane przed publicznym uruchomieniem strony.",
+        "W obecnej wersji kod serwisu nie zawiera narzędzi analitycznych ani reklamowych i nie wykorzystuje opcjonalnych plików cookies do śledzenia użytkowników.",
+        "Środowisko hostingowe może przetwarzać standardowe dane techniczne niezbędne do bezpiecznego udostępniania strony, takie jak adres IP, czas żądania lub informacje o przeglądarce.",
       ],
     },
   ],
