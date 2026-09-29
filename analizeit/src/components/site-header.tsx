@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { navigation } from "@/content/site";
 
@@ -12,13 +12,27 @@ import { Wordmark } from "./wordmark";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     document.body.dataset.menuOpen = open ? "true" : "false";
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Escape" || !open) return;
+      setOpen(false);
+      requestAnimationFrame(() => menuButton.current?.focus());
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
       delete document.body.dataset.menuOpen;
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header className="site-header">
@@ -44,6 +58,7 @@ export function SiteHeader() {
           aria-label={open ? "Zamknij menu" : "Otwórz menu"}
           className="menu-toggle"
           onClick={() => setOpen((value) => !value)}
+          ref={menuButton}
           type="button"
         >
           {open ? <CloseIcon /> : <MenuIcon />}
