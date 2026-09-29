@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 import { Container } from "@/components/container";
+import { ContactForm } from "@/components/contact-form";
 import { ArrowUpRight } from "@/components/icons";
 import { siteConfig } from "@/content/site";
 
@@ -54,9 +54,9 @@ export default function AboutPage() {
               </p>
 
               <div className="about-hero__actions">
-                <Link className="about-hero__contact" href="/kontakt">
-                  Porozmawiajmy <ArrowUpRight size={21} />
-                </Link>
+                <a className="about-hero__contact" href="#kontakt">
+                  Napisz wiadomość <ArrowUpRight size={21} />
+                </a>
 
                 {siteConfig.contact.linkedin ? (
                   <a
@@ -146,17 +146,36 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="about-contact" aria-labelledby="about-contact-title">
+      <section className="about-contact" id="kontakt" aria-labelledby="about-contact-title">
         <Container>
           <div className="about-contact__layout">
-            <h2 id="about-contact-title">
-              Masz proces, który trzeba
-              <br />
-              uporządkować?
-            </h2>
-            <Link href="/kontakt">
-              Porozmawiajmy <ArrowUpRight size={24} />
-            </Link>
+            <div className="about-contact__intro">
+              <h2 id="about-contact-title">
+                Opisz proces,
+                <br />
+                który chcesz usprawnić.
+              </h2>
+              <p>
+                Nie potrzebujesz gotowej specyfikacji. Napisz, jak dziś wygląda praca,
+                na jakim etapie jest projekt i co wymaga uporządkowania.
+              </p>
+
+              {siteConfig.contact.linkedin ? (
+                <a
+                  className="about-contact__linkedin"
+                  href={siteConfig.contact.linkedin}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Wolisz LinkedIn? Napisz bezpośrednio <ArrowUpRight size={18} />
+                  <span className="visually-hidden"> — otwiera się w nowej karcie</span>
+                </a>
+              ) : null}
+            </div>
+
+            <div className="about-contact__form">
+              <ContactForm />
+            </div>
           </div>
         </Container>
       </section>
