@@ -10,11 +10,22 @@ export function DigitalHero() {
       <Container>
         <div className="digital-hero__layout">
           <div className="digital-hero__copy">
-            <h1 id="digital-title" className="digital-hero__title">Firma rośnie.<em>Ręcznej pracy nie musi przybywać.</em></h1>
-            <p>W WEBCON BPS digitalizuję firmowe procesy, automatyzuję powtarzalne zadania i usprawniam to, co spowalnia pracę. Zespół nie musi przepisywać tych samych danych, pilnować każdego kroku ani czekać na decyzje dłużej, niż trzeba.</p>
+            <h1 id="digital-title" className="digital-hero__title">
+              Firma rośnie.
+              <em>Ręcznej pracy nie musi przybywać.</em>
+            </h1>
+            <p>
+              Projektuję i rozwijam rozwiązania w WEBCON BPS, które porządkują obiegi,
+              automatyzują powtarzalne zadania i łączą dane między systemami. Mniej
+              przepisywania, pilnowania terminów i pracy obok procesu.
+            </p>
             <div className="digital-hero__actions">
-              <Link className="digital-hero__primary" href="/kontakt">Porozmawiajmy <ArrowUpRight size={20} /></Link>
-              <Link className="digital-hero__secondary" href="/uslugi">Zobacz zakres usług <ArrowRight size={18} /></Link>
+              <Link className="digital-hero__primary" href="/kontakt">
+                Porozmawiajmy <ArrowUpRight size={20} />
+              </Link>
+              <Link className="digital-hero__secondary" href="/uslugi">
+                Zobacz zakres usług <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
           <InvoiceWorkflow />
@@ -23,7 +34,3 @@ export function DigitalHero() {
     </section>
   );
 }
-
-
-
-
