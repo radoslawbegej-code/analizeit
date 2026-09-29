@@ -2,21 +2,21 @@
 body:has(.digital-subpage) { --canvas: #151917; --paper: #1d2320; --ink: #f4f6ed; --muted: #a5afa8; --accent: #d2fa7c; --accent-soft: #d2fa7c12; --line: #ffffff20; --line-dark: #ffffff20; }
 body:has(.digital-subpage) .site-header { position: absolute; top: 0; width: 100%; height: 84px; border: 0; }
 body:has(.digital-subpage) .site-header__inner { border-bottom: 1px solid #ffffff17; }
-body:has(.digital-subpage) .wordmark--compact { font-size: 1.45rem; font-weight: 700; letter-spacing: -.065em; }
+body:has(.digital-subpage) .wordmark--compact { font-size: 1.45rem; font-weight: 700; letter-spacing: -.04em; }
 body:has(.digital-subpage) .desktop-nav { gap: clamp(1.3rem,2.6vw,2.8rem); }
 body:has(.digital-subpage) .desktop-nav__link { color: #d9dfd9; font-size: .9rem; font-weight: 500; height: auto; border: 0; padding: .4rem 0; }
 body:has(.digital-subpage) .header-cta { color: #f4f6ed; font-size: .93rem; font-weight: 600; }
 body:has(.digital-subpage) .header-cta span { height: 2.55rem; width: 2.55rem; }
 body:has(.digital-subpage) .menu-toggle { color: #f4f6ed; }
 .digital-subpage { color: #f4f6ed; background: #151917; }
-.digital-subpage h1, .digital-subpage h2, .digital-subpage h3 { font-family: var(--sans); font-weight: 500; letter-spacing: -.045em; line-height: 1.15; }
+.digital-subpage h1, .digital-subpage h2, .digital-subpage h3 { font-family: var(--display); font-weight: 500; letter-spacing: -.035em; line-height: 1.15; }
 .digital-subpage h2 { font-size: clamp(2rem,3.5vw,3.4rem); }
 .digital-subpage h3 { font-size: clamp(1.35rem,2vw,1.8rem); }
 .digital-subpage p, .digital-subpage li { font-size: 1rem; line-height: 1.75; }
 .digital-subpage .eyebrow { color: #a5afa8; font-family: var(--sans); font-size: .875rem; letter-spacing: 0; text-transform: none; }
 .digital-subpage .page-hero { background: #151917; background-image: none; padding: 148px 0 4.5rem; border-bottom: 1px solid #ffffff20; }
 .digital-subpage .page-hero__grid { display: block; }
-.digital-subpage .page-hero h1 { font-size: clamp(3rem,6vw,5.6rem); line-height: 1.05; letter-spacing: -.06em; max-width: 17ch; margin: 1.5rem 0 2rem; }
+.digital-subpage .page-hero h1 { font-size: clamp(3rem,6vw,5.6rem); line-height: 1.05; letter-spacing: -.04em; max-width: 17ch; margin: 1.5rem 0 2rem; }
 .digital-subpage .page-hero__lead { max-width: 44rem; color: #a5afa8; font-size: 1.1rem; line-height: 1.75; }
 .digital-subpage .page-hero__content { animation: none; }
 .digital-subpage .section-pad { padding-block: clamp(4rem,7vw,7rem); }
@@ -69,8 +69,6 @@ body:has(.digital-subpage) .menu-toggle { color: #f4f6ed; }
 .digital-subpage .cta-band h2 { font-size: clamp(2rem,3.6vw,3.5rem); max-width: 20ch; }
 .subpage-contact-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-shrink: 0; background: #1d2819; color: #f4f6ed; padding: 1.2rem 1.5rem; border-radius: 4px; font-size: 1rem; transition: background 180ms ease; }
 .subpage-contact-link:hover { background: #304325; }
-.subpage-contact-link svg, .digital-subpage .text-link svg { transition: transform 180ms ease; }
-.subpage-contact-link:hover svg, .digital-subpage .text-link:hover svg { transform: translate(3px,-3px); }
 body:has(.digital-subpage) .subpage-contact-link:focus-visible { outline-color: #1d2819; }
 .digital-subpage .text-link { color: #d2fa7c; font-size: 1rem; padding-block: .5rem; gap: .75rem; }
 .digital-subpage .text-link:hover { color: #e2ffac; }
@@ -90,7 +88,7 @@ body:has(.digital-subpage) .subpage-contact-link:focus-visible { outline-color: 
 .digital-subpage .consent input { flex-shrink: 0; accent-color: #d2fa7c; }
 .digital-subpage .consent a { color: #d2fa7c; border-color: #d2fa7c70; }
 .digital-subpage .consent a:hover { color: #e2ffac; border-color: currentColor; }
-.digital-subpage .button--dark { background: #d2fa7c; color: #1d2819; border: 1px solid #d2fa7c; border-radius: 7px; font-size: 1rem; text-transform: none; letter-spacing: 0; padding: 1rem 1.2rem; cursor: pointer; }
+.digital-subpage .button--dark { background: #d2fa7c; color: #1d2819; border: 1px solid #d2fa7c; border-radius: 4px; font-size: 1rem; text-transform: none; letter-spacing: 0; padding: 1rem 1.2rem; cursor: pointer; }
 .digital-subpage .button--dark:hover { background: #e2ffac; color: #1d2819; border-color: #e2ffac; }
 .digital-subpage .form-submit { flex-wrap: wrap; }
 .digital-subpage .form-submit__note { font-size: .875rem; color: #a5afa8; max-width: 17rem; }
@@ -147,7 +145,7 @@ body:has(.digital-subpage) .subpage-contact-link:focus-visible { outline-color: 
 .about-person { padding: 150px 0 4rem; background: #151917; }
 .about-person__layout { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(3rem,7vw,7rem); align-items: center; }
 .about-person__eyebrow { margin: 0 0 1.7rem; color: #a5afa8; font-size: .85rem; }
-.about-person__copy h1 { margin: 0; font-family: var(--sans); color: #f4f6ed; font-size: clamp(4rem,7.4vw,7.5rem); font-weight: 500; line-height: .98; letter-spacing: -.065em; }
+.about-person__copy h1 { margin: 0; font-family: var(--sans); color: #f4f6ed; font-size: clamp(4rem,7.4vw,7.5rem); font-weight: 500; line-height: .98; letter-spacing: -.04em; }
 .about-person__copy h1 > span { color: #d2fa7c; }
 .about-person__lead { margin: 2rem 0 1.6rem; max-width: 29rem; color: #b4bfb0; font-size: 1.05rem; line-height: 1.8; }
 .about-person__linkedin { display: inline-flex; align-items: center; gap: .8rem; color: #e1e8da; font-size: .9rem; padding-bottom: .45rem; border-bottom: 1px solid #76836c; }
@@ -160,7 +158,7 @@ body:has(.digital-subpage) .subpage-contact-link:focus-visible { outline-color: 
 .expertise-map { padding-block: clamp(2.5rem,5vw,4.5rem); background: #1c231e; color: #edf2e7; }
 .expertise-map__heading { margin-bottom: 2rem; }
 .expertise-map__heading > p { color: #a6b39c; font-size: .8rem; margin: 0 0 .8rem; }
-.expertise-map__heading h2 { margin: 0; font-size: clamp(1.9rem,3.3vw,3rem); font-weight: 400; line-height: 1.15; letter-spacing: -.045em; }
+.expertise-map__heading h2 { margin: 0; font-size: clamp(1.9rem,3.3vw,3rem); font-weight: 400; line-height: 1.15; letter-spacing: -.035em; }
 .expertise-map__rows { border-top: 1px solid #ffffff30; }
 .expertise-map__row { display: grid; grid-template-columns: 3rem minmax(0,1fr) minmax(0,1fr); align-items: start; gap: 1.5rem; padding: 1.7rem 0; border-bottom: 1px solid #ffffff20; }
 .expertise-map__number { color: #d2fa7c; font-family: var(--mono); font-size: .75rem; padding-top: .45rem; }
