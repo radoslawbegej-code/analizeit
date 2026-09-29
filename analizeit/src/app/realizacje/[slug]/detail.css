@@ -329,11 +329,15 @@
 
 @media (max-width: 900px) {
   .process-detail__intro,
-  .process-detail__section-heading,
   .process-detail__integrations,
   .process-detail__outcomes {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .process-detail__section-heading {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .process-detail__meta {
