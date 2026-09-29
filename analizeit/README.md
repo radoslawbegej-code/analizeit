@@ -18,12 +18,10 @@ Strona będzie dostępna pod adresem `http://localhost:3000`.
 Cała treść oraz dane marki znajdują się w `src/content/site.ts`. Przed publikacją należy uzupełnić:
 
 - docelową domenę w `.env.local` jako `NEXT_PUBLIC_SITE_URL`,
-- e-mail, telefon i LinkedIn w `siteConfig.contact`,
-- zdjęcie na stronie „O mnie”,
-- zweryfikowane, anonimowe case studies w `caseStudies`,
-- pełne dane działalności oraz finalną politykę prywatności.
+- docelowy kanał kontaktu w `siteConfig.contact`,
+- pełne dane działalności i finalną informację o prywatności zgodną z docelowym hostingiem oraz sposobem kontaktu.
 
-Formularz kontaktowy działa obecnie w trybie demonstracyjnym: waliduje pola, ale nie wysyła i nie zapisuje danych.
+Publiczna strona kontaktowa korzysta obecnie z bezpośredniego odnośnika do LinkedIn. Komponent formularza pozostaje w kodzie jako baza do późniejszej integracji, ale nie jest prezentowany użytkownikom, dopóki nie zostanie podłączona rzeczywista wysyłka.
 
 ## Kontrola jakości
 
