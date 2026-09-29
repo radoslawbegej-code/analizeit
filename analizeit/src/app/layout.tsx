@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Manrope, Source_Sans_3 } from "next/font/google";
 
+import { AmbientProcessFlow } from "@/components/ambient-process-flow";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${sourceSans.variable} ${manrope.variable} ${plexMono.variable}`}>
         <a className="skip-link" href="#main-content">Przejdź do treści</a>
         <StructuredData />
+        <AmbientProcessFlow />
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
