@@ -16,7 +16,7 @@ export type Realization = {
 export const realizations: Realization[] = [
   {
     slug: "faktury-i-ksef", category: "FINANSE", title: "Faktury i KSeF", motif: "invoice",
-    summary: "Od rejestracji i akceptacji faktury po połączenie KSeF, księgowości i ERP.",
+    summary: "Rejestracja, opis kosztu i akceptacja faktury połączone z KSeF oraz przekazaniem danych do ERP.",
     technologies: ["WEBCON BPS", "KSeF", "ERP", "REST API", "SQL Server"],
     roles: ["Księgowość", "Właściciele kosztów", "Zakupy", "IT"],
     challenge: "Faktury, opisy kosztów i decyzje są rozproszone między pocztą, arkuszami i systemem księgowym. Trudno ustalić, kto powinien zatwierdzić dokument, czy dane są kompletne i czy faktura została już przekazana do ERP.",
@@ -34,11 +34,11 @@ export const realizations: Realization[] = [
       { title: "ERP i dane finansowe", description: "Wymiana słowników, danych kosztowych i statusów przez dostępne API. Kontrolowane ponowienie operacji zapobiega wielokrotnemu przekazaniu tej samej faktury." },
       { title: "Reguły i raportowanie", description: "Automatyczny dobór ścieżki akceptacji, przypomnienia o terminach oraz zestawienia zaległości i błędów na podstawie danych procesu i SQL Server." },
     ],
-    effects: ["Eliminacja ręcznego przepisywania danych", "Pełna historia akceptacji i przekazań", "Wspólny status dokumentu dla finansów i biznesu", "Mniej braków wykrywanych dopiero przy księgowaniu"],
+    effects: ["Mniej ręcznego przepisywania danych między systemami", "Jedna historia akceptacji i przekazań", "Wspólny status dokumentu dla finansów i biznesu", "Mniej braków wykrywanych dopiero przy księgowaniu"],
   },
   {
     slug: "proces-zakupowy", category: "ZAKUPY", title: "Proces zakupowy", motif: "purchase",
-    summary: "Zapotrzebowanie, zamówienie i odbiór połączone z akceptacją i kontrolą budżetu.",
+    summary: "Od zgłoszenia potrzeby i kontroli budżetu po zamówienie, odbiór oraz powiązanie kosztu z ERP.",
     technologies: ["WEBCON BPS", "ERP", "REST API", "SQL Server"],
     roles: ["Działy biznesowe", "Zakupy", "Finanse", "Magazyn"],
     challenge: "Zapotrzebowania trafiają do zakupów różnymi kanałami. Zgoda na wydatek, zamówienie u dostawcy i odbiór dostawy funkcjonują osobno, więc finanse nie widzą pełnego obrazu zobowiązań i wykorzystania budżetu.",
@@ -60,7 +60,7 @@ export const realizations: Realization[] = [
   },
   {
     slug: "onboarding-pracownika", category: "HR / IT", title: "Onboarding pracownika", motif: "people",
-    summary: "HR, IT i administracja we wspólnym procesie przygotowania pracownika do pracy.",
+    summary: "Wspólny plan HR, IT, administracji i przełożonego: zadania, dostępy i gotowość przed pierwszym dniem.",
     technologies: ["WEBCON BPS", "Microsoft 365", "REST API"],
     roles: ["HR", "IT", "Administracja", "Przełożony"],
     challenge: "Informacja o nowej osobie uruchamia serię maili do różnych zespołów. Sprzęt, dostępy, dokumenty i stanowisko mają innych właścicieli, a przełożony nie ma jednego miejsca, w którym sprawdzi gotowość do pierwszego dnia pracy.",
@@ -82,7 +82,7 @@ export const realizations: Realization[] = [
   },
   {
     slug: "zarzadzanie-umowami", category: "PRAWO / ADMINISTRACJA", title: "Zarządzanie umowami", motif: "contract",
-    summary: "Od projektu i opiniowania do podpisu, repozytorium oraz kontroli terminów.",
+    summary: "Projekt, opiniowanie i akceptacja umowy połączone z wersjonowaniem, podpisem oraz kontrolą terminów.",
     technologies: ["WEBCON BPS", "Microsoft 365", "ERP"],
     roles: ["Biznes", "Dział prawny", "Finanse", "Administracja"],
     challenge: "Kolejne wersje umowy krążą w wiadomościach. Biznes, prawnicy i finanse opiniują różne pliki, a po podpisaniu trudno ustalić obowiązującą wersję, właściciela umowy oraz termin wypowiedzenia lub odnowienia.",
@@ -104,7 +104,7 @@ export const realizations: Realization[] = [
   },
   {
     slug: "automatyzacja-procesu-operacyjnego", category: "OPERACJE / DANE", title: "Automatyzacja procesu operacyjnego", motif: "data",
-    summary: "Masowy import, walidacja i przekazywanie poprawnych rekordów do zewnętrznych API.",
+    summary: "Import dużych paczek danych, walidacja każdego rekordu, obsługa wyjątków i kontrolowana wysyłka do API.",
     technologies: ["WEBCON BPS", "REST API", "SQL Server"],
     roles: ["Operacje", "Właściciele danych", "IT", "Systemy zewnętrzne"],
     challenge: "Duże paczki danych wymagają ręcznego sprawdzania i poprawiania przed importem do systemów zewnętrznych. Pojedynczy błędny rekord lub niedostępność API zatrzymuje pracę, a ponowienie całej paczki grozi duplikatami.",
@@ -126,7 +126,7 @@ export const realizations: Realization[] = [
   },
   {
     slug: "raportowanie-i-monitoring-procesow", category: "ANALITYKA", title: "Raportowanie i monitoring procesów", motif: "report",
-    summary: "Dane z procesów, SQL i systemów zewnętrznych we wspólnym widoku KPI w Power BI.",
+    summary: "Wspólny model danych dla WEBCON, SQL i API oraz raporty Power BI oparte na uzgodnionych definicjach KPI.",
     technologies: ["Power BI", "WEBCON BPS", "SQL Server", "REST API"],
     roles: ["Zarząd", "Właściciele procesów", "Analitycy", "IT"],
     challenge: "Każdy dział przygotowuje raport według własnych definicji i na inny moment. Dane z procesów, baz SQL i systemów zewnętrznych trzeba ręcznie łączyć, zanim można ocenić zaległości, obciążenie zespołów i miejsca przestoju.",
@@ -144,6 +144,6 @@ export const realizations: Realization[] = [
       { title: "Power BI i dostęp do informacji", description: "Dashboardy dopasowane do zarządu i właścicieli procesów. Uprawnienia i filtrowanie danych są projektowane zgodnie z odpowiedzialnością użytkowników." },
       { title: "Monitoring jakości i aktualności", description: "Kontrola odświeżania, brakujących danych i niespójnych statusów. Widoczny moment aktualizacji pozwala ocenić, z jakiego okresu pochodzą informacje." },
     ],
-    effects: ["Jedno źródło uzgodnionych wskaźników", "Mniej ręcznego składania raportów", "Widoczność zaległości i wąskich gardeł", "Decyzje oparte na wspólnych, aktualizowanych danych"],
+    effects: ["Jedne definicje wskaźników dla wszystkich odbiorców", "Mniej ręcznego składania raportów", "Widoczność zaległości i etapów wymagających uwagi", "Możliwość przejścia od KPI do danych źródłowych"],
   },
 ];
