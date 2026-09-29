@@ -280,35 +280,32 @@ export const contactContent = {
   title: "Porozmawiajmy o procesie, który chcesz usprawnić.",
   lead:
     "Napisz, jak wygląda dziś praca, na jakim etapie jest projekt i co wymaga uporządkowania. Na tej podstawie łatwiej ustalić właściwy zakres rozmowy.",
-  formTitle: "Napisz wiadomość",
-  directTitle: "Kontakt bez formularza",
-  unavailable:
-    "Dane kontaktowe zostaną uzupełnione przed publikacją serwisu.",
 };
 
 export const privacyContent = {
-  eyebrow: "Informacje formalne",
-  title: "Polityka prywatności",
-  updated: "Wersja robocza · przed publikacją",
+  eyebrow: "Prywatność",
+  title: "Prywatność w serwisie",
+  updated: "Informacja o obecnej wersji strony",
   sections: [
     {
-      title: "Status obecnej wersji",
+      title: "Dane zbierane przez stronę",
       paragraphs: [
-        "Formularz kontaktowy w tej wersji serwisu działa demonstracyjnie. Wprowadzone dane nie są wysyłane ani zapisywane.",
-        "Przed uruchomieniem formularza polityka zostanie uzupełniona o dane administratora, podstawę i cel przetwarzania, czas przechowywania oraz prawa użytkownika.",
+        "Serwis nie udostępnia aktywnego formularza kontaktowego i nie zapisuje danych wpisywanych przez użytkownika w aplikacji.",
+        "W obecnej wersji kod serwisu nie zawiera narzędzi analitycznych ani reklamowych i nie wykorzystuje opcjonalnych plików cookies do śledzenia użytkowników.",
       ],
     },
     {
-      title: "Dane techniczne",
+      title: "Kontakt przez LinkedIn",
       paragraphs: [
-        "Pierwsza wersja nie korzysta z narzędzi analitycznych ani reklamowych i nie ustawia opcjonalnych plików cookies.",
-        "Po wdrożeniu dostawca hostingu może przetwarzać standardowe dane techniczne niezbędne do bezpiecznego udostępniania strony. Szczegóły zostaną opisane po wyborze docelowej konfiguracji domeny i hostingu.",
+        "Odnośnik kontaktowy prowadzi do zewnętrznego serwisu LinkedIn. Po przejściu na tę stronę obowiązują zasady prywatności i przetwarzania danych określone przez operatora LinkedIn.",
+        "Informacje przekazane dobrowolnie w wiadomości mogą zostać wykorzystane do odpowiedzi i rozmowy o potencjalnej współpracy.",
       ],
     },
     {
-      title: "Kontakt",
+      title: "Dane techniczne hostingu",
       paragraphs: [
-        "Docelowe dane kontaktowe i pełne dane działalności zostaną dodane przed publicznym uruchomieniem strony.",
+        "Środowisko hostingowe może przetwarzać standardowe dane techniczne niezbędne do bezpiecznego udostępniania strony, takie jak adres IP, czas żądania lub informacje o przeglądarce.",
+        "Przed uruchomieniem docelowej domeny zakres tych danych i okres ich przechowywania powinny zostać zweryfikowane względem wybranego dostawcy hostingu.",
       ],
     },
   ],
