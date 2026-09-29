@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { CtaBand } from "@/components/cta-band";
-import { PageHero } from "@/components/page-hero";
 import { RealizationGrid } from "@/components/realization-grid";
 import { realizations } from "@/content/realizations";
 import "./realizacje.css";
@@ -15,18 +14,19 @@ export const metadata: Metadata = {
 export default function RealizationsPage() {
   return (
     <div className="digital-subpage realizations-page">
-      <PageHero
-        eyebrow="Przykłady procesów"
-        title="Proces, dane i integracje w jednym modelu."
-        lead="To nie są gotowe szablony do skopiowania. Każdy przykład pokazuje, jak można uporządkować role, decyzje, dane i integracje w typowym procesie biznesowym — od pierwszego zgłoszenia po monitoring i raportowanie."
-      />
-
-      <section className="realizations-catalog" id="projekty" aria-labelledby="realizations-catalog-title">
+      <section className="realizations-intro" aria-labelledby="realizations-title">
         <Container>
-          <div className="realizations-catalog__heading">
-            <h2 id="realizations-catalog-title">Obszary zastosowań</h2>
-            <p>{realizations.length} modeli procesów</p>
-          </div>
+          <h1 id="realizations-title">Przykłady procesów.</h1>
+          <p>
+            Każda organizacja ma własne role, reguły i systemy. Poniższe przykłady pokazują,
+            jak można połączyć je w jeden spójny proces — bez udawania, że istnieje jeden
+            gotowy szablon pasujący do wszystkich.
+          </p>
+        </Container>
+      </section>
+
+      <section className="realizations-catalog" aria-label="Lista przykładowych procesów">
+        <Container>
           <RealizationGrid items={realizations} />
         </Container>
       </section>
