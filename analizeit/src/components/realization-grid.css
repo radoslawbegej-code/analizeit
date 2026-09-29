@@ -126,6 +126,12 @@
   transform: scale(1.025);
 }
 
+.process-index__link:focus-visible .process-index__action .arrow-surface {
+  background: var(--digital-accent);
+  border-color: var(--digital-accent);
+  color: #151917;
+}
+
 @media (hover: hover) {
   .process-index__link:hover .process-index__media img {
     filter: saturate(.82) brightness(.94);
@@ -134,6 +140,12 @@
 
   .process-index__link:hover .process-index__content h3 {
     color: var(--digital-accent);
+  }
+
+  .process-index__link:hover .process-index__action .arrow-surface {
+    background: var(--digital-accent);
+    border-color: var(--digital-accent);
+    color: #151917;
   }
 }
 
