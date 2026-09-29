@@ -288,10 +288,10 @@ export const privacyContent = {
   updated: "Informacja o obecnej wersji strony",
   sections: [
     {
-      title: "Dane zbierane przez stronę",
+      title: "Formularz kontaktowy",
       paragraphs: [
-        "Serwis nie udostępnia aktywnego formularza kontaktowego i nie zapisuje danych wpisywanych przez użytkownika w aplikacji.",
-        "W obecnej wersji kod serwisu nie zawiera narzędzi analitycznych ani reklamowych i nie wykorzystuje opcjonalnych plików cookies do śledzenia użytkowników.",
+        "Formularz może przekazywać imię lub nazwę firmy, adres e-mail, nazwę organizacji oraz treść wiadomości do skonfigurowanego kanału kontaktowego.",
+        "Dane są wykorzystywane wyłącznie do obsługi zapytania i odpowiedzi. Przed publikacją należy uzupełnić tę informację o dane administratora, dostawcę kanału wysyłki oraz okres przechowywania zgodny z docelową konfiguracją.",
       ],
     },
     {
@@ -302,10 +302,10 @@ export const privacyContent = {
       ],
     },
     {
-      title: "Dane techniczne hostingu",
+      title: "Dane techniczne i cookies",
       paragraphs: [
+        "W obecnej wersji kod serwisu nie zawiera narzędzi analitycznych ani reklamowych i nie wykorzystuje opcjonalnych plików cookies do śledzenia użytkowników.",
         "Środowisko hostingowe może przetwarzać standardowe dane techniczne niezbędne do bezpiecznego udostępniania strony, takie jak adres IP, czas żądania lub informacje o przeglądarce.",
-        "Przed uruchomieniem docelowej domeny zakres tych danych i okres ich przechowywania powinny zostać zweryfikowane względem wybranego dostawcy hostingu.",
       ],
     },
   ],
