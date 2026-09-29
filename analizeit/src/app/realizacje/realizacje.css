@@ -1,38 +1,42 @@
-.realizations-catalog {
-  padding: clamp(3.5rem, 6vw, 6rem) 0 clamp(5rem, 8vw, 8rem);
+.realizations-intro {
+  padding: clamp(9rem, 14vw, 12rem) 0 clamp(4.5rem, 8vw, 7rem);
+  border-bottom: 1px solid #ffffff20;
 }
 
-.realizations-catalog__heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem 3rem;
-  margin-bottom: clamp(2rem, 3vw, 3rem);
-}
-
-.realizations-catalog__heading h2 {
+.realizations-intro h1 {
+  max-width: 13ch;
   margin: 0;
-  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
-  letter-spacing: -.02em;
+  font-size: clamp(3.4rem, 7vw, 6.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.04em;
+  text-wrap: balance;
 }
 
-.realizations-catalog__heading > p {
-  margin: 0;
+.digital-subpage .realizations-intro p {
+  max-width: 48rem;
+  margin: 2rem 0 0;
   color: var(--digital-muted);
-  font-size: .875rem;
-  line-height: 1.5;
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem);
+  line-height: 1.7;
+}
+
+.realizations-catalog {
+  padding: clamp(2rem, 4vw, 4rem) 0 clamp(5rem, 8vw, 8rem);
 }
 
 @media (max-width: 700px) {
-  .realizations-catalog {
-    padding-top: 3rem;
-    padding-bottom: 4.5rem;
+  .realizations-intro {
+    padding-top: 7.5rem;
+    padding-bottom: 3.5rem;
   }
 
-  .realizations-catalog__heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: .5rem;
-    margin-bottom: 1.5rem;
+  .realizations-intro h1 {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+
+  .realizations-catalog {
+    padding-top: 1rem;
+    padding-bottom: 4.5rem;
   }
 }
