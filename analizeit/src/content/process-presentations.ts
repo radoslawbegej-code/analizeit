@@ -8,38 +8,38 @@ type ProcessPresentation = {
 export const processPresentations: Record<Realization["motif"], ProcessPresentation> = {
   invoice: {
     problem:
-      "Faktura trafia do organizacji, ale jej dalsza obsługa jest rozproszona. Opis kosztu, akceptacje i status księgowania trzeba ustalać w kilku miejscach, a brak lub duplikat często wychodzi dopiero na końcu procesu.",
+      "Faktura trafia z KSeF lub innego źródła, ale opis kosztu, akceptacje i status księgowania są obsługiwane osobno. Trudno szybko sprawdzić, czego brakuje i kto powinien wykonać kolejny krok.",
     solution:
-      "Jeden obieg łączy dokument z opisem kosztu, regułami akceptacji i statusem integracji. KSeF oraz ERP pozostają źródłami danych, a WEBCON porządkuje decyzje, odpowiedzialność i obsługę wyjątków.",
+      "WEBCON prowadzi dokument przez opis kosztu i akceptację, a integracje z KSeF i ERP dostarczają dane oraz statusy. Wyjątki i błędy pozostają widoczne w tej samej sprawie.",
   },
   purchase: {
     problem:
-      "Potrzeba zakupu, zgoda budżetowa, zamówienie i odbiór są obsługiwane oddzielnie. W efekcie trudno ocenić zobowiązania przed fakturą i szybko ustalić, na jakim etapie jest konkretna pozycja.",
+      "Zapotrzebowanie, zgoda budżetowa, zamówienie i odbiór funkcjonują w kilku miejscach. Status trzeba uzgadniać ręcznie, a pełny koszt często staje się widoczny dopiero przy fakturze.",
     solution:
-      "Proces zachowuje jedno powiązanie od zapotrzebowania do odbioru. Decyzje budżetowe, dane dostawcy i status zamówienia są widoczne w tej samej sprawie, także przy dostawach częściowych.",
+      "Jedna sprawa łączy potrzebę zakupu z budżetem, dostawcą, zamówieniem i odbiorem. Każda pozycja zachowuje powiązanie z pierwotnym zgłoszeniem, także przy dostawach częściowych.",
   },
   people: {
     problem:
-      "Informacja o nowym pracowniku uruchamia zadania w kilku działach, ale bez wspólnego planu. Sprzęt, dokumenty i dostępy mają różnych właścicieli, a opóźnienie jednego obszaru może być widoczne dopiero tuż przed rozpoczęciem pracy.",
+      "HR, IT i administracja przygotowują nową osobę równolegle, ale każde zadanie ma innego właściciela. Bez wspólnego statusu braki wychodzą często dopiero przed pierwszym dniem pracy.",
     solution:
-      "Jedno zgłoszenie tworzy zestaw zadań zależny od stanowiska, lokalizacji i daty rozpoczęcia. HR, IT, administracja i przełożony pracują równolegle, a wspólny status pokazuje, czego jeszcze brakuje.",
+      "Jedno zgłoszenie uruchamia zestaw zadań zależny od stanowiska, lokalizacji i daty rozpoczęcia. Przełożony widzi, co jest gotowe, a co nadal wymaga działania.",
   },
   contract: {
     problem:
-      "Wersje umowy, uwagi i akceptacje krążą między wiadomościami i plikami. Po podpisaniu dochodzi kolejny problem: trzeba pamiętać o właścicielu umowy, aneksach oraz terminach odnowienia lub wypowiedzenia.",
+      "Wersje umowy, uwagi i akceptacje krążą między wiadomościami i plikami. Po podpisaniu trzeba dodatkowo pilnować aneksów, właściciela umowy oraz terminów odnowienia i wypowiedzenia.",
     solution:
-      "Rejestr umów łączy dokument z jego wersjami, opiniami i decyzjami. Po podpisaniu ten sam proces przechodzi w tryb nadzoru nad terminami, zobowiązaniami i powiązanymi dokumentami.",
+      "Jeden rejestr łączy dokument z wersjami, opiniami i decyzjami. Po podpisaniu ta sama sprawa służy do nadzoru nad terminami i kolejnymi zmianami umowy.",
   },
   data: {
     problem:
-      "Przy dużym imporcie jeden błędny rekord może zatrzymać całą paczkę. Ręczna weryfikacja jest wolna, a ponawianie wysyłki bez historii prób zwiększa ryzyko duplikatów i niejasnych statusów.",
+      "Przy dużym imporcie pojedynczy błąd może zatrzymać całą paczkę. Ręczna weryfikacja zajmuje czas, a ponowienie wysyłki bez historii prób zwiększa ryzyko duplikatów.",
     solution:
-      "Walidacja i wysyłka są rozdzielone na poziom pojedynczego rekordu. Poprawne dane mogą przejść dalej, błędy trafiają do korekty, a każda próba komunikacji z API pozostawia jednoznaczny ślad.",
+      "Każdy rekord jest walidowany i wysyłany niezależnie. Poprawne dane przechodzą dalej, błędy trafiają do korekty, a odpowiedzi API i historia prób pozostają zapisane.",
   },
   report: {
     problem:
-      "Dane potrzebne do raportowania pochodzą z kilku źródeł i często mają różne definicje statusów lub okresów. Zanim powstanie raport, część pracy polega na ręcznym uzgadnianiu, co właściwie oznacza dana liczba.",
+      "Dane do raportowania pochodzą z kilku źródeł i nie zawsze używają tych samych definicji statusów, okresów i wskaźników. Duża część pracy polega więc na ręcznym uzgadnianiu danych.",
     solution:
-      "Najpierw powstaje wspólny model danych i definicje KPI. Dopiero na tej podstawie budowane są raporty Power BI, które pozwalają przejść od wyniku zbiorczego do procesu, etapu lub danych źródłowych.",
+      "Najpierw powstaje wspólny model danych i definicje KPI. Na nim opierają się raporty Power BI, które pozwalają przejść od wyniku zbiorczego do konkretnego procesu i danych źródłowych.",
   },
 };
