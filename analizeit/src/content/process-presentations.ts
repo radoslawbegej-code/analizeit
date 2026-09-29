@@ -3,62 +3,43 @@ import type { Realization } from "./realizations";
 type ProcessPresentation = {
   problem: string;
   solution: string;
-  stages: { title: string; text: string }[];
 };
 
 export const processPresentations: Record<Realization["motif"], ProcessPresentation> = {
   invoice: {
-    problem: "Faktura krąży między pocztą, arkuszami i księgowością. Nie wiadomo, kto ma ją zatwierdzić ani czego jeszcze brakuje.",
-    solution: "Dokument, opis kosztu i decyzje trafiają do jednego obiegu. Każda osoba widzi, co ma zrobić, a finanse znają status sprawy.",
-    stages: [
-      { title: "Wpływ i kontrola", text: "Faktura trafia z KSeF lub innego źródła. System sprawdza kompletność danych, kontrahenta i duplikaty." },
-      { title: "Opis i akceptacja", text: "Koszt zostaje przypisany do budżetu. Dokument trafia do właściwych osób zgodnie z regułami firmy." },
-      { title: "Księgowanie i nadzór", text: "Zatwierdzone dane trafiają do ERP. Zespół widzi potwierdzenia, zaległości i sprawy wymagające uwagi." },
-    ],
+    problem:
+      "Faktura trafia do organizacji, ale jej dalsza obsługa jest rozproszona. Opis kosztu, akceptacje i status księgowania trzeba ustalać w kilku miejscach, a brak lub duplikat często wychodzi dopiero na końcu procesu.",
+    solution:
+      "Jeden obieg łączy dokument z opisem kosztu, regułami akceptacji i statusem integracji. KSeF oraz ERP pozostają źródłami danych, a WEBCON porządkuje decyzje, odpowiedzialność i obsługę wyjątków.",
   },
   purchase: {
-    problem: "Potrzeba zakupu, zgoda na wydatek i zamówienie żyją osobno. Pełny koszt staje się widoczny dopiero przy fakturze.",
-    solution: "Jeden proces łączy zgłoszenie potrzeby z budżetem, dostawcą i odbiorem. Koszty są widoczne, zanim powstanie zobowiązanie.",
-    stages: [
-      { title: "Potrzeba i budżet", text: "Pracownik określa, czego potrzebuje i na kiedy. Właściciel budżetu sprawdza środki i zatwierdza wydatek." },
-      { title: "Zamówienie", text: "Zakupy wybierają dostawcę. Zatwierdzone pozycje trafiają do ERP, z powiązaniem do pierwotnego zgłoszenia." },
-      { title: "Odbiór i rozliczenie", text: "Zespół potwierdza dostawę, również częściową. Koszt pozostaje powiązany z zamówieniem i wykorzystaniem budżetu." },
-    ],
+    problem:
+      "Potrzeba zakupu, zgoda budżetowa, zamówienie i odbiór są obsługiwane oddzielnie. W efekcie trudno ocenić zobowiązania przed fakturą i szybko ustalić, na jakim etapie jest konkretna pozycja.",
+    solution:
+      "Proces zachowuje jedno powiązanie od zapotrzebowania do odbioru. Decyzje budżetowe, dane dostawcy i status zamówienia są widoczne w tej samej sprawie, także przy dostawach częściowych.",
   },
   people: {
-    problem: "Nowa osoba zaczyna pracę, ale sprzęt, dostępy i dokumenty mają różnych właścicieli. Gotowość trzeba sprawdzać w kolejnych mailach.",
-    solution: "Jedno zgłoszenie uruchamia wspólny plan HR, IT i administracji. Przełożony widzi przygotowania oraz sprawy, które wymagają reakcji.",
-    stages: [
-      { title: "Zgłoszenie i plan", text: "HR podaje stanowisko, lokalizację i datę rozpoczęcia. Na tej podstawie powstaje plan zadań i terminów." },
-      { title: "Przygotowanie", text: "Działy równolegle organizują sprzęt, dokumenty i stanowisko. Przyznanie dostępów wymaga odpowiednich akceptacji." },
-      { title: "Pierwszy dzień", text: "Wspólny widok pokazuje wykonane zadania i braki. Przypomnienia pomagają zamknąć przygotowania na czas." },
-    ],
+    problem:
+      "Informacja o nowym pracowniku uruchamia zadania w kilku działach, ale bez wspólnego planu. Sprzęt, dokumenty i dostępy mają różnych właścicieli, a opóźnienie jednego obszaru może być widoczne dopiero tuż przed rozpoczęciem pracy.",
+    solution:
+      "Jedno zgłoszenie tworzy zestaw zadań zależny od stanowiska, lokalizacji i daty rozpoczęcia. HR, IT, administracja i przełożony pracują równolegle, a wspólny status pokazuje, czego jeszcze brakuje.",
   },
   contract: {
-    problem: "Różne wersje umowy krążą w wiadomościach. Po podpisaniu trudno znaleźć aktualny dokument, właściciela i termin odnowienia.",
-    solution: "Wspólny rejestr łączy dokument z historią uzgodnień i odpowiedzialną osobą. Po podpisaniu nadal pilnuje terminów oraz zobowiązań.",
-    stages: [
-      { title: "Projekt i uzgodnienia", text: "Umowa powstaje z szablonu. Biznes, prawnicy i finanse opiniują tę samą, wskazaną wersję." },
-      { title: "Akceptacja i podpis", text: "Warunki zatwierdzają uprawnione osoby. Proces prowadzi dokument przez uzgodnioną ścieżkę podpisu." },
-      { title: "Rejestr i terminy", text: "Podpisana umowa, aneksy i dane kontrahenta są w jednym miejscu. Przypomnienia wyprzedzają odnowienie lub wypowiedzenie." },
-    ],
+    problem:
+      "Wersje umowy, uwagi i akceptacje krążą między wiadomościami i plikami. Po podpisaniu dochodzi kolejny problem: trzeba pamiętać o właścicielu umowy, aneksach oraz terminach odnowienia lub wypowiedzenia.",
+    solution:
+      "Rejestr umów łączy dokument z jego wersjami, opiniami i decyzjami. Po podpisaniu ten sam proces przechodzi w tryb nadzoru nad terminami, zobowiązaniami i powiązanymi dokumentami.",
   },
   data: {
-    problem: "Duże paczki danych trzeba ręcznie sprawdzać przed importem. Jeden błąd potrafi zatrzymać całość, a ponowienie grozi duplikatami.",
-    solution: "Każdy rekord ma własny status i historię. Poprawne dane są przetwarzane, a wyjątki trafiają do osoby, która może je skorygować.",
-    stages: [
-      { title: "Import i walidacja", text: "Dane trafiają z pliku lub API. System sprawdza format, kompletność, powiązania i reguły biznesowe." },
-      { title: "Obsługa wyjątków", text: "Błędne rekordy trafiają do korekty. Poprawne dane czekają w kolejce, bez blokowania całej paczki." },
-      { title: "Przekazanie i kontrola", text: "Dane są wysyłane partiami. Odpowiedzi API i historia prób pozwalają uzgodnić wynik oraz wznowić operację." },
-    ],
+    problem:
+      "Przy dużym imporcie jeden błędny rekord może zatrzymać całą paczkę. Ręczna weryfikacja jest wolna, a ponawianie wysyłki bez historii prób zwiększa ryzyko duplikatów i niejasnych statusów.",
+    solution:
+      "Walidacja i wysyłka są rozdzielone na poziom pojedynczego rekordu. Poprawne dane mogą przejść dalej, błędy trafiają do korekty, a każda próba komunikacji z API pozostawia jednoznaczny ślad.",
   },
   report: {
-    problem: "Działy raportują według różnych definicji i na inny moment. Zanim powstanie wspólny obraz, ktoś ręcznie łączy arkusze.",
-    solution: "Wspólny model danych i uzgodnione wskaźniki dają zespołom ten sam punkt odniesienia. Raport prowadzi od ogólnego wyniku do konkretnej sprawy.",
-    stages: [
-      { title: "Źródła i definicje", text: "Łączymy dane procesowe, SQL i API. Z biznesem ustalamy znaczenie wskaźników oraz zasady kontroli jakości." },
-      { title: "Czytelne raporty", text: "Power BI pokazuje widoki dopasowane do zarządu i zespołów. Filtry pozwalają przejść do szczegółów procesu." },
-      { title: "Aktualność i decyzje", text: "Dane odświeżają się według harmonogramu. Widoczne zaległości i obciążenie zespołów pomagają ustalić priorytety." },
-    ],
+    problem:
+      "Dane potrzebne do raportowania pochodzą z kilku źródeł i często mają różne definicje statusów lub okresów. Zanim powstanie raport, część pracy polega na ręcznym uzgadnianiu, co właściwie oznacza dana liczba.",
+    solution:
+      "Najpierw powstaje wspólny model danych i definicje KPI. Dopiero na tej podstawie budowane są raporty Power BI, które pozwalają przejść od wyniku zbiorczego do procesu, etapu lub danych źródłowych.",
   },
 };
