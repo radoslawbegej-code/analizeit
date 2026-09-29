@@ -18,9 +18,9 @@ export default function RealizationsPage() {
         <Container>
           <h1 id="realizations-title">Przykłady procesów.</h1>
           <p>
-            Każda organizacja ma własne role, reguły i systemy. Poniższe przykłady pokazują,
-            jak można połączyć je w jeden spójny proces — bez udawania, że istnieje jeden
-            gotowy szablon pasujący do wszystkich.
+            Poniżej pokazuję kilka typowych obszarów, w których WEBCON BPS może połączyć
+            pracę użytkowników z danymi i systemami firmy. Każdy przykład jest punktem
+            wyjścia — rzeczywisty proces wynika z zasad konkretnej organizacji.
           </p>
         </Container>
       </section>
