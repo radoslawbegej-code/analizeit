@@ -1,42 +1,70 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
 import { Container } from "@/components/container";
-import { CtaBand } from "@/components/cta-band";
 import { ArrowUpRight } from "@/components/icons";
-import { aboutContent, siteConfig } from "@/content/site";
+import { siteConfig } from "@/content/site";
+
+import "./about.css";
 
 export const metadata: Metadata = {
   title: "O mnie — Radosław Begej",
-  description: "Radosław Begej — analiza biznesowa, aplikacje WEBCON BPS, integracje i dane. Poznaj mój sposób pracy i współpracy przy projektach.",
+  description:
+    "Radosław Begej — WEBCON BPS, analiza procesów, integracje, SQL Server i raportowanie. Od wymagań po działające rozwiązanie.",
   alternates: { canonical: "/o-mnie" },
 };
+
+const workingPrinciples = [
+  {
+    title: "Analiza bez oderwania od wdrożenia",
+    body:
+      "Już podczas analizy biorę pod uwagę model danych, reguły, uprawnienia, integracje i późniejsze utrzymanie rozwiązania.",
+  },
+  {
+    title: "Development bez zgadywania",
+    body:
+      "Formularze i automatyzacje wynikają z uzgodnionego procesu. Wyjątki i odpowiedzialność są ustalone zanim zaczną pojawiać się w kodzie i konfiguracji.",
+  },
+  {
+    title: "Rozwój bez odkrywania systemu od nowa",
+    body:
+      "Porządkuję logikę i kluczowe decyzje projektowe tak, żeby kolejna zmiana nie zaczynała się od reverse engineeringu istniejącego rozwiązania.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <div className="digital-subpage about-page">
-      <section className="about-intro" aria-labelledby="about-title">
+      <section className="about-hero" aria-labelledby="about-title">
         <Container>
-          <nav className="page-breadcrumb" aria-label="Ścieżka strony">
-            <Link href="/">Start</Link><span aria-hidden="true">/</span><span aria-current="page">O mnie</span>
-          </nav>
+          <div className="about-hero__layout">
+            <div className="about-hero__copy">
+              <h1 id="about-title">Radosław Begej</h1>
 
-          <div className="about-intro__layout">
-            <div className="about-intro__copy">
-              <h1 id="about-title">Radosław<br />Begej</h1>
-              <p className="about-intro__lead">Analizuję proces.<br />Potem przekładam go na rozwiązanie.</p>
-              <p className="about-intro__description">
-                Pracuję od wymagań i modelu procesu po implementację w WEBCON BPS,
-                integracje, SQL i raportowanie. Dzięki temu decyzje biznesowe nie giną
-                między analizą a developmentem.
+              <p className="about-hero__role">
+                Projektuję i rozwijam rozwiązania procesowe w WEBCON BPS
+                oraz łączę je z danymi i systemami firmy.
               </p>
 
-              <div className="about-intro__actions">
-                <Link className="about-contact-link" href="/kontakt">
-                  Porozmawiajmy <ArrowUpRight size={22} />
+              <p className="about-hero__description">
+                Pracuję na styku analizy i developmentu. Dzięki temu wymagania,
+                reguły biznesowe i integracje nie są przekazywane z ręki do ręki —
+                mogę prowadzić je od rozmowy z użytkownikami po działające rozwiązanie.
+              </p>
+
+              <div className="about-hero__actions">
+                <Link className="about-hero__contact" href="/kontakt">
+                  Porozmawiajmy <ArrowUpRight size={21} />
                 </Link>
+
                 {siteConfig.contact.linkedin ? (
-                  <a className="site-text-link" href={siteConfig.contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="about-hero__linkedin"
+                    href={siteConfig.contact.linkedin}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     LinkedIn <ArrowUpRight size={18} />
                     <span className="visually-hidden"> — otwiera się w nowej karcie</span>
                   </a>
@@ -44,64 +72,94 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="about-intro__portrait">
+            <figure className="about-hero__portrait">
               <Image
                 src="/radoslaw-begej-portrait-retouched.png"
                 alt="Radosław Begej"
                 width={1271}
                 height={1238}
-                sizes="(max-width: 760px) 90vw, (max-width: 1200px) 40vw, 480px"
+                sizes="(max-width: 760px) 92vw, (max-width: 1200px) 43vw, 560px"
                 priority
               />
-            </div>
-          </div>
-
-          <div className="about-toolkit">
-            <p>Technologie, z którymi pracuję</p>
-            <ul aria-label="Technologie">
-              <li>WEBCON BPS</li>
-              <li>SQL Server</li>
-              <li>Power BI / SSRS</li>
-              <li>REST API</li>
-            </ul>
+            </figure>
           </div>
         </Container>
       </section>
 
-      <section className="about-approach" aria-labelledby="approach-title">
+      <section className="about-thinking" aria-labelledby="thinking-title">
         <Container>
-          <div className="about-approach__layout">
-            <div className="about-approach__intro">
-              <h2 id="approach-title">Zaczynam od tego,<br />jak naprawdę przebiega praca.</h2>
+          <div className="about-thinking__layout">
+            <h2 id="thinking-title">
+              Najpierw chcę wiedzieć,
+              <br />
+              jak naprawdę wygląda praca.
+            </h2>
+
+            <div className="about-thinking__copy">
               <p>
                 Rozmawiam z osobami, które wykonują proces. Sprawdzam, gdzie czekają
-                na informacje, co przepisują ręcznie, które wyjątki wracają najczęściej
-                i gdzie decyzja zatrzymuje całą sprawę.
+                na informacje, które dane są przepisywane ręcznie, gdzie powstają
+                wyjątki i co zatrzymuje decyzję.
               </p>
               <p>
-                Mogę poprowadzić rozwiązanie od analizy do wdrożenia albo dołączyć
-                do zespołu tam, gdzie potrzebne są konkretne kompetencje.
+                Dopiero potem układam formularze, reguły, uprawnienia i integracje.
+                Nie odwzorowuję obecnego sposobu pracy jeden do jednego, jeśli można
+                go uprościć przed wdrożeniem.
               </p>
-              <Link className="site-text-link" href="/uslugi">
-                Zakres współpracy <ArrowUpRight size={20} />
-              </Link>
-            </div>
-
-            <div className="about-approach__principles">
-              {aboutContent.principles.map((principle) => (
-                <article key={principle.title}>
-                  <h3>{principle.title}</h3>
-                  <p>{principle.body}</p>
-                </article>
-              ))}
             </div>
           </div>
         </Container>
       </section>
 
-      <Container className="cta-wrap">
-        <CtaBand title="Masz proces, który trzeba uporządkować?" />
-      </Container>
+      <section className="about-work" aria-labelledby="work-title">
+        <Container>
+          <div className="about-work__heading">
+            <h2 id="work-title">Jak pracuję</h2>
+            <p>
+              Łączę decyzje biznesowe z technicznymi konsekwencjami.
+              To skraca drogę między wymaganiem a implementacją.
+            </p>
+          </div>
+
+          <div className="about-work__rows">
+            {workingPrinciples.map((principle) => (
+              <article key={principle.title}>
+                <h3>{principle.title}</h3>
+                <p>{principle.body}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="about-stack" aria-labelledby="stack-title">
+        <Container>
+          <div className="about-stack__layout">
+            <h2 id="stack-title">Technologie</h2>
+            <p>
+              WEBCON BPS <span aria-hidden="true">·</span> SQL Server{" "}
+              <span aria-hidden="true">·</span> REST API{" "}
+              <span aria-hidden="true">·</span> Power BI{" "}
+              <span aria-hidden="true">·</span> SSRS
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="about-contact" aria-labelledby="about-contact-title">
+        <Container>
+          <div className="about-contact__layout">
+            <h2 id="about-contact-title">
+              Masz proces, który trzeba
+              <br />
+              uporządkować?
+            </h2>
+            <Link href="/kontakt">
+              Porozmawiajmy <ArrowUpRight size={24} />
+            </Link>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 }
