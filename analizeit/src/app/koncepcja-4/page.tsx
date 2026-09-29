@@ -82,8 +82,8 @@ export default function ConceptFourPage() {
         <section className="identity-close" aria-labelledby="close-title">
           <p>Masz proces, który trzeba przemyśleć?</p>
           <h2 id="close-title">Zacznijmy od rozmowy.</h2>
-          <Link href="mailto:kontakt@analize.pl">
-            kontakt@analize.pl <span aria-hidden="true"><ArrowUpRight size={28} /></span>
+          <Link href="/kontakt">
+            Porozmawiajmy <span aria-hidden="true"><ArrowUpRight size={28} /></span>
           </Link>
         </section>
       </main>
