@@ -91,34 +91,52 @@
 }
 .home-capability:hover h3 { color: var(--digital-accent); }
 
-/* One concise delivery promise, carried by type rather than process chrome. */
+/* Delivery section: a calm editorial split, without staged marketing statements. */
 .home-delivery {
   padding-block: clamp(5rem, 8vw, 8rem);
   background: var(--digital-bg);
 }
-.home-delivery__header { display: block; }
-.home-delivery__header h2 { max-width: 18ch; }
-.home-delivery__statement {
-  margin-top: clamp(4.5rem, 8vw, 7.5rem);
+.home-delivery__layout {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: start;
 }
-.digital-sections .home-delivery .home-delivery__statement p {
-  max-width: 28ch;
-  color: #718078;
-  font-family: var(--display);
-  font-size: clamp(2rem, 4.1vw, 4.25rem);
-  font-weight: 500;
-  letter-spacing: -.035em;
-  line-height: 1.07;
-  text-wrap: balance;
+.home-delivery__intro {
+  position: sticky;
+  top: 7rem;
 }
-.digital-sections .home-delivery .home-delivery__statement p + p {
-  margin-top: clamp(1.75rem, 3.2vw, 3rem);
+.home-delivery__intro h2 {
+  max-width: 18ch;
 }
-.digital-sections .home-delivery .home-delivery__statement p:nth-child(2) { margin-left: 10%; }
-.digital-sections .home-delivery .home-delivery__statement p:nth-child(3) { margin-left: 20%; }
-.home-delivery__statement strong {
-  color: var(--digital-text);
-  font-weight: inherit;
+.digital-sections .home-delivery__intro > p {
+  max-width: 43ch;
+  margin-top: 1.75rem;
+  color: var(--digital-muted);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.home-delivery__principles {
+  border-top: 1px solid #ffffff38;
+}
+.home-delivery__principles article {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(1.75rem, 3vw, 2.4rem);
+  border-bottom: 1px solid var(--company-rule);
+}
+.digital-sections .home-delivery__principles h3 {
+  max-width: 18ch;
+  font-size: clamp(1.2rem, 1.65vw, 1.55rem);
+  letter-spacing: -.025em;
+  line-height: 1.25;
+}
+.digital-sections .home-delivery__principles p {
+  max-width: 39ch;
+  color: var(--digital-muted);
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 /* One restrained business inquiry, with a clear next step. */
@@ -186,14 +204,6 @@ body:has(.home-continuation) .site-footer {
     grid-column: 3;
     grid-row: 1 / span 2;
   }
-  .digital-sections .home-delivery .home-delivery__statement p {
-    max-width: 25ch;
-  }
-}
-
-@media (max-width: 860px) {
-  .digital-sections .home-delivery .home-delivery__statement p:nth-child(2) { margin-left: 6%; }
-  .digital-sections .home-delivery .home-delivery__statement p:nth-child(3) { margin-left: 12%; }
 }
 
 @media (max-width: 700px) {
@@ -231,13 +241,18 @@ body:has(.home-continuation) .site-footer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  .home-delivery__statement { margin-top: 3.25rem; }
-  .digital-sections .home-delivery .home-delivery__statement p {
-    max-width: 24ch;
-    font-size: clamp(1.65rem, 7.2vw, 2.25rem);
-    line-height: 1.12;
+  .home-delivery__layout {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
   }
-  .digital-sections .home-delivery .home-delivery__statement p:nth-child(n) { margin-left: 0; }
+  .home-delivery__intro {
+    position: static;
+  }
+  .home-delivery__principles article {
+    grid-template-columns: 1fr;
+    gap: .65rem;
+    padding-block: 1.5rem;
+  }
   .home-company-contact__action {
     justify-self: start;
     width: 100%;
